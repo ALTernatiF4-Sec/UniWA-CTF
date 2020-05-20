@@ -3,6 +3,12 @@
 </p>
 <p align="center"> <b>DOCUMENTATION</b> </p>
 
+<p align="center">
+  <span>English</span> |
+  <a href="https://github.com/mwmos/uniWA-CTF/tree/master/documentation/greek">Ελληνικά</a> |
+  <a href="https://github.com/alvarotrigo/fullPage.js/tree/master/lang/russian#fullpagejs">Pусский</a> 
+</p>
+
 ### Contents
 - [Introduction](#introduction)
   - [Who are we](#who-are-we)
