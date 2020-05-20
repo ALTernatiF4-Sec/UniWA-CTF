@@ -4,8 +4,8 @@
 <p align="center"> <b>DOCUMENTATION</b> </p>
 
 <p align="center">
-  <span>English</span> |
-  <a href="https://github.com/mwmos/uniWA-CTF/blob/master/documentation/greek/README.md">Ελληνικά</a> |
+  <a href="https://github.com/mwmos/uniWA-CTF/blob/master/README.md">English</a> |
+  <span>Ελληνικά</span> |
   <a href="https://github.com/alvarotrigo/fullPage.js/tree/master/lang/russian#fullpagejs">Pусский</a> |
 </p>
 
