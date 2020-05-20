@@ -39,12 +39,28 @@
 ## Virtual Environment
 
 ## Operating Systems
-
 *We suggest that you use a GNU/Linux based penetration testing distribitution to solve the challenges. Although technically you could use the OS of your taste, many of the tools that we suggest are coming pre-installed and ready to use in the distributions described below, so that you can just install them on a VM and start hacking!*
 
 - [BlackArch](https://blackarch.org/) - An Arch Linux-based distribution backed by a community of volunteers.
 - [Kali Linux](https://www.kali.org/) - A Debian-based distribution maintained and funded by Offensive Security.
 - [Parrot OS](https://www.parrotsec.org/) - A Debian-based distribution which includes, except the penetration testing tools, also a bunch of privacy tools. A community-driven project supported by Parrot Security.
+
+# Installation
+
+## Docker Deployment
+
+### Clone UniWA-CTF
+1. Clone the Github repository, `git clone ....`
+2. Switch to the downloaded directory, `cd ...`
+
+### Run UniWA-CTF
+`docker-compose up`
+
+By default UniWA-CTF runs on port 8888. To access it just write `http://localhost:8888` on your browser. The default admin credentials are:
+
+Username:`admin`
+
+Password:`rootthebox`
 
 # Tools
 
