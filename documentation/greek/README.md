@@ -6,7 +6,7 @@
 <p align="center">
   <a href="https://github.com/mwmos/uniWA-CTF/blob/master/README.md">English</a> |
   <span>Ελληνικά</span> |
-  <a href="https://github.com/alvarotrigo/fullPage.js/tree/master/lang/russian#fullpagejs">Pусский</a> |
+  <a href="link/gia/rwssika">Pусский</a> 
 </p>
 
 ### Contents
