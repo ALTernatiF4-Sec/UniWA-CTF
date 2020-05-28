@@ -29,10 +29,29 @@
 # Introduction
 
 ## Who are we
+ALTernatiF4 is a team created by [mwm0s](https://github.com/mwmos) and [AlexS51](https://github.com/AlexS51). We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. We're also looking forward to reqruit new members so that we can participate in CTF challenges at a competitive level.   
+
+```
+$whoami
+mwm0s
+- CCNA
+- Cybersecurity Enthusiast
+- GNU/Linux Power User
+- FOSS Advocate
+```
+
+```
+$whoami
+AlexS51 
+
+```
 
 ## The project
+UniWA-CTF is our final year's thesis project. It's a begginer-friendly CTF challenge designed to introduce students in various terms and techniques used in the Cybersecurity field from the perspective of the attacker. We used the [RootTheBox](https://github.com/moloch--/RootTheBox) engine, which is giving the admin an easy to use GUI, allows the user to use a variety of themes, has the CyberChef tool integrated and also introduces some Gamification elements to improve user engagement.
 
-## Free and Open-Source software
+
+## Free and Open-Source Software
+We took the decision to use only Free and Open-Source Software (FOSS). This decision's based on the fact that .  
 
 # Getting Started
 
