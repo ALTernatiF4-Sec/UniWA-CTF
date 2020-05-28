@@ -55,7 +55,28 @@ We took the decision to use only Free and Open-Source Software (FOSS). This deci
 
 # Getting Started
 
-## Virtual Environment
+## Theoretical Background
+Below we are introduce some reading material for concepts which we think that are crucial for solving the challenges and the boot2root VMs.
+
+### Cryptography
+- [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
+- [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
+
+### Reverse Engineering
+
+### Forensics
+- [Exif](https://en.wikipedia.org/wiki/Exif)
+- [pcap](https://en.wikipedia.org/wiki/Pcap)
+
+### Web
+- [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
+
+### OSINT
+
+### Miscellaneous
+- [Esoteric Programming Languages](https://en.wikipedia.org/wiki/Esoteric_programming_language)
+- [Magic Bytes](https://en.wikipedia.org/wiki/List_of_file_signatures)
+- [Dictionary Attack](https://en.wikipedia.org/wiki/Dictionary_attack)
 
 ## Operating Systems
 *We suggest that you use a GNU/Linux based penetration testing distribitution to solve the challenges. Although technically you could use the OS of your taste, many of the tools that we suggest are coming pre-installed and ready to use in the distributions described below, so that you can just install them on a VM and start hacking!*
@@ -65,6 +86,8 @@ We took the decision to use only Free and Open-Source Software (FOSS). This deci
 - [Parrot OS](https://www.parrotsec.org/) - A Debian-based distribution which includes, except the penetration testing tools, also a bunch of privacy tools. A community-driven project supported by Parrot Security.
 
 # Installation
+
+## Virtual Environment
 
 ## Docker Deployment
 
