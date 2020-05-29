@@ -15,6 +15,7 @@
   - [The project](#the-project)
   - [Free and Open-Source software](#free-and-open-source-software)
 - [Getting Started](#getting-started)
+  - [Theoretical Background](#theoretical-background)
   - [Virtual Environment](#virtual-environment)
   - [Operating Systems](#operating-systems)
 - [Tools](#tools)
@@ -25,6 +26,7 @@
   - [Notekeeping](#notekeeping)
   - [Steganography](#stegano)
   - [Web](#web)
+  - [Reverse Engineering](#reverse-engineering)
 
 # Introduction
 
@@ -43,7 +45,8 @@ mwm0s
 ```
 root@UniWA-CTF:~# whoami
 AlexS51 
-
+- RPG Gamer
+- Ethical Hacking Beginner
 ```
 
 ## The project
@@ -63,6 +66,9 @@ Below we introduce some reading material for concepts that we think they are cru
 - [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 
 ### Reverse Engineering
+- [Reverse Engineering](https://en.wikipedia.org/wiki/Reverse_engineering)
+- [Assembly Language](https://en.wikipedia.org/wiki/Assembly_language)
+- [Ext4 Filesystem Image](https://ext4.wiki.kernel.org/index.php/Ext4_Howto)
 
 ### Forensics
 - [Exif](https://en.wikipedia.org/wiki/Exif)
@@ -77,6 +83,7 @@ Below we introduce some reading material for concepts that we think they are cru
 - [Esoteric Programming Languages](https://en.wikipedia.org/wiki/Esoteric_programming_language)
 - [Magic Bytes](https://en.wikipedia.org/wiki/List_of_file_signatures)
 - [Dictionary Attack](https://en.wikipedia.org/wiki/Dictionary_attack)
+- [Code Obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software))
 
 ## Operating Systems
 *We suggest that you use a GNU/Linux based penetration testing distribitution to solve the challenges. Although technically you could use the OS of your taste, many of the tools that we suggest are coming pre-installed and ready to use in the distributions described below, so that you can just install them on a VM and start hacking!*
@@ -136,3 +143,12 @@ variety of files.
 ## Notekeeping
 
 - [Cherrytree](https://www.giuspen.com/cherrytree/) - A hierarchical note taking application, featuring rich text and syntax highlighting, storing data in a single xml or sqlite file.
+
+## Reverse Engineering
+
+- [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - Ghidra is a software reverse engineering (SRE) framework.
+- [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
+
+## Miscellaneous
+- [JavaScript Obfuscator Tool](https://github.com/javascript-obfuscator/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
+- [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
