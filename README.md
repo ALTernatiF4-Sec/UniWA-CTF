@@ -51,12 +51,12 @@ UniWA-CTF is our final year's thesis project. It's a begginer-friendly CTF chall
 
 
 ## Free and Open-Source Software
-We took the decision to use only Free and Open-Source Software (FOSS). This decision's based on the fact that .  
+We took the decision to use only Free and Open-Source Software (FOSS). This decision's based on the fact that we ourselves got a ton of help building that project from the FOSS community. Also most of the times that type of software comes free of charge, that helps not only us the developers but also the end-user, as he/she is not obligated to buy some licence to participate, clone or contribute to the project.   
 
 # Getting Started
 
 ## Theoretical Background
-Below we are introduce some reading material for concepts which we think that are crucial for solving the challenges and the boot2root VMs.
+Below we introduce some reading material for concepts that we think they are crucial for solving the challenges and the boot2root VMs.
 
 ### Cryptography
 - [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
