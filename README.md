@@ -128,8 +128,8 @@ Password:`rootthebox`
 
 - [John The Ripper](http://www.openwall.com/john/) - Swiss army knife of Password Cracking.
 - [Zip2john](https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/src/zip2john.c) - Tool allowing to extract the hash of a password protected .zip file, so that can be cracked with John The Ripper.
-  - Basic Example:
   ```
+  # Example of basic usage:
   # First step is to extract the hash from your password protected .zip or .rar and save it to a .txt file
   ```
   ```console
@@ -156,8 +156,8 @@ Password:`rootthebox`
 
 - [Metasploit](http://www.metasploit.com/) - Penetration testing framework containing various CVEs and payloads, with a user-friendly terminal based UI for easier use.
 - [SearchSploit](https://www.exploit-db.com/searchsploit) - CLI Tool that allows offline searching for exploits contained in the exploit-db.
-  - Basic Example:
   ```
+  # Example of basic usage:
   # Type "searchsploit" and the name of the service that you are looking for exploits. For example, 
   # if we want to search for Django exploits we type:
   ```
@@ -192,6 +192,7 @@ variety of files.
 - [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging..
 
 ## Miscellaneous
+
 - [JavaScript Obfuscator Tool](https://github.com/javascript-obfuscator/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
 - [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
 
@@ -204,3 +205,5 @@ variety of files.
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
 
+## Steganography
+- [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
