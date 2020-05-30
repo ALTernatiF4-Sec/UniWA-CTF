@@ -97,6 +97,15 @@ Below we introduce some reading material for concepts that we think they are cru
 # Installation
 
 ## Virtual Environment
+Our boxes are made with [Oracle VM VirtualBox](https://www.virtualbox.org/). Its installation is an easy process which is described greatly at their website. Below we provide instructions to import and use our VMs using VirtualBox. 
+
+- Step 1: Open VirtualBox and press Ctrl+H.
+- Step 2: Click on the "Create" button and close the window.
+- Step 3: Press Ctrl+I.
+- Step 4: In the "File" form you can type the path to the VM that you want to import, or click the button at the right side.
+- Step 5: Click "Next" and then "Import".
+- Step 6: Right click on the imported VM and select "Settings".
+- Step 7: Click on the "Network" tab and make sure that the Network Adapter is attached to the "Host-only Adapter".
 
 ## Docker Deployment
 
@@ -150,15 +159,16 @@ variety of files.
 - [Wireshark](https://www.wireshark.org/) - Widely-used network protocol analyzer.
 - [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging..
 
+## Miscellaneous
+- [JavaScript Obfuscator Tool](https://github.com/javascript-obfuscator/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
+- [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
+
 ## Notekeeping
 
 - [Cherrytree](https://www.giuspen.com/cherrytree/) - A hierarchical note taking application, featuring rich text and syntax highlighting, storing data in a single xml or sqlite file.
 
 ## Reverse Engineering
 
-- [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - Ghidra is a software reverse engineering (SRE) framework.
+- [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
 
-## Miscellaneous
-- [JavaScript Obfuscator Tool](https://github.com/javascript-obfuscator/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
-- [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
