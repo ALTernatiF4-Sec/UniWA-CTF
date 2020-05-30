@@ -4,7 +4,7 @@
 <p align="center"> <b>DOCUMENTATION</b> </p>
 
 <p align="center">
-  <a href="https://github.com/mwmos/uniWA-CTF/blob/master/README.md">English</a> |
+  <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/blob/master/README.md">English</a> |
   <span>Ελληνικά</span> |
   <a href="link/gia/rwssika">Pусский</a> 
 </p>
