@@ -128,15 +128,20 @@ Password:`rootthebox`
 
 - [John The Ripper](http://www.openwall.com/john/) - Swiss army knife of Password Cracking.
 - [Zip2john](https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/src/zip2john.c) - Tool allowing to extract the hash of a password protected .zip file, so that can be cracked with John The Ripper.
-  - Example
-  ```console
-  # First step is to extract the hash from your password protected .zip or .rar and save it to a .txt file
-  root@UniWA-CTF:~# zip2john foo.zip > hash.txt
-  # Then you can crack the hash with john utilizing a ready-made wordlist from those that come out of the box with penetration testing distros
-  root@UniWA-CTF:~# john --format=zip --wordlist /usr/share/wordlists/rockyou.txt hash.txt
-  
+  - Basic Example:
   ```
-
+  # First step is to extract the hash from your password protected .zip or .rar and save it to a .txt file
+  ```
+  ```console
+  root@UniWA-CTF:~# zip2john foo.zip > hash.txt
+  ```
+  ```
+  # Then you can crack the hash with john utilizing a ready-made wordlist from those that come out of the 
+  # box with penetration testing distros
+  ```
+  ```console
+  root@UniWA-CTF:~# john --format=zip --wordlist /usr/share/wordlists/rockyou.txt hash.txt
+  ```
 
 ## Cryptography
 
@@ -151,6 +156,33 @@ Password:`rootthebox`
 
 - [Metasploit](http://www.metasploit.com/) - Penetration testing framework containing various CVEs and payloads, with a user-friendly terminal based UI for easier use.
 - [SearchSploit](https://www.exploit-db.com/searchsploit) - CLI Tool that allows offline searching for exploits contained in the exploit-db.
+  - Basic Example:
+  ```
+  # Type "searchsploit" and the name of the service that you are looking for exploits. For example, 
+  # if we want to search for Django exploits we type:
+  ```
+  ```console
+  root@UniWA-CTF:~# searchsploit django
+  ---------------------------------------------- ---------------------------------
+  Exploit Title                                 |  Path
+  ---------------------------------------------- ---------------------------------
+  Django 3.0 - Cross-Site Request Forgery Token | php/webapps/48303.txt
+  Django < 3.0 < 2.2 < 1.11 - Account Hijack    | python/webapps/47879.md
+  Django CMS 3.3.0 - Editor Snippet Persistent  | python/webapps/40129.txt
+  ---------------------------------------------- ---------------------------------
+  ```
+  ```
+  # The exploit files are usually accessible at /usr/share/exploitdb. Then you can access it with the
+  # path provided at the standard output of the searchsploit tool at the "Path" column. An alternative
+  # to that is to find yourself the path by using the "locate" command. For example if you wanted to 
+  # find the "Django 3.0 - Cross-Site Request Forgery Token" exploit you would have to type:
+  ```
+  ```console
+  root@UniWA-CTF:~# sudo updatedb
+  root@UniWA-CTF:~# locate 48303.txt
+  /usr/share/exploitdb/exploits/php/webapps/48303.txt
+  ```
+
 
 ## Forensics
 
