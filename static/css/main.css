@@ -1,0 +1,92 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+footer {
+    font-size: 75%;
+    position: fixed;
+    bottom: -30px;
+    width: 100%;
+}
+.footernav {
+    padding: 5px 20px;
+}
+.img-polaroid {
+    width: 500px;
+}
+.shortcolumn {
+    width: 1px;
+    white-space: nowrap;
+}
+.descriptioncol {
+    white-space: pre-wrap;
+    word-wrap: break-word; 
+    max-width: 350px;
+}
+.levelheader {
+    display: inline;
+    vertical-align: middle;
+}
+.statcolumn {
+    text-align: center !important;
+    vertical-align: middle  !important;
+    width: 100px;
+}
+.centercolumn {
+    text-align: center !important;
+    vertical-align: middle  !important;
+}
+.wordbreak {
+    word-wrap: break-word; 
+}
+.successtext {
+    font-size: 225%;
+    color: green;
+}
+.disabledtext {
+    font-size: 275%;
+}
+.avatarused {
+    color: white; 
+    font-size: 23pt; 
+    position: absolute; 
+    top: -11px; 
+    right: -5px;
+}
+.avatarused-top {
+    font-size: 16pt; 
+    position: absolute; 
+    top: -6px; 
+    right: -1px;
+}
+
+.preformatted {
+    font-family: monospace;
+    font-size: 95%;
+    white-space: pre-wrap;
+    display: block;
+    margin: 1em 0;
+}
+
+.markdown p {
+    display: inline;
+}
+
+.markdown ul {
+    margin-bottom: 0px;
+}
+
+code,
+pre {
+    background-color: #000 !important;
+    font-family: unset !important;
+    font-size: unset !important;
+    padding: 0px 6px 1px 5px !important;
+    white-space: pre-wrap !important;
+
+}
+
+code {
+    color: #f52323 !important;
+    border: 1px solid #979797 !important;
+}

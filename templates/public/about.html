@@ -1,0 +1,86 @@
+{% extends "../main.html" %} {% block title %} {{ _("About") }} {% end %} {% block head %}
+{% end %} {% block content %}
+<div class="container">
+    <h2>
+        <i class="fa fa-info-circle"></i>
+        {{ _("About") }} v{{ handler.application.settings["version"] }}
+    </h2>
+    <br />
+    <div class="well">
+        <div style="text-align: center;">
+            
+                <!-- Firefox fix -->
+                <!-- Programming -->
+
+                <h2>{{ _("Programming") }}</h2>
+                <hr>
+                <h3>
+                    <i class="fa fa-trophy"></i> Moloch
+                </h3>
+                <h3>
+                    ElJeffe
+                </h3>
+                <br />
+                <h2>{{ _("With contributions from") }}</h2>
+                <table style="width:100%; text-align: center;">
+                    <tbody>
+                        <tr>
+                            <td><h3>AnarKyx01</h3></td>
+                            <td><h3>ElmoArmy</h3></td>
+                            <td><h3>lstep</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h3>iggykrajci</h3></td>
+                            <td><h3>ekstrah</h3></td>
+                            <td><h3>F13</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h3>shshzi</h3></td>
+                            <td><h3>garanews</h3></td>
+                            <td><h3>yolylight</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h3>tinmartinet</h3></td>
+                            <td><h3>loi219</h3></td>
+                            <td><h3>jinghli</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h3>bkimminich</h3></td>
+                            <td><h3>RyPeck</h3></td>
+                            <td><h3>Eriner</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h3>Enki</h3></td>
+                            <td><h3>sporky</h3></td>
+                            <td><h3>remi1411</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h3>pointhi</h3></td>
+                            <td><h3>lavalamp</h3></td>
+                            <td><h3>dadokkio</h3><td>
+                        </tr>
+                        <tr>
+                            <td><h3>dNetGuru</h3></td>
+                            <td><h3>Und3rf10w</h3></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <!-- Special Thanks -->
+                <hr>
+                <h2>{{ _("Special Thanks") }}</h2>
+                <hr>
+                <a href="http://www.blackhartfilms.com/" target="_blank">
+                    <!-- Morris Image (https://pixabay.com/photos/moody-lighting-dark-grunge-719229/) / Free for commercial use - No attribution required -->
+                    <img src="/static/images/blackheart.png" />
+                </a>
+                <br /><br />
+                <a href="https://www.bishopfox.com/" target="_blank">
+                    <img src="/static/images/bf.png" />
+                </a>
+                <br /><br />
+        </div>
+    </div>
+</div>
+{% end %}

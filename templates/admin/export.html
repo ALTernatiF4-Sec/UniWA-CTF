@@ -1,0 +1,57 @@
+{% extends "../main.html" %}
+
+{% block title %}{{ _("Export XML") }}{% end %}
+
+{% block header %}
+<script src="/static/js/pages/admin/export.js"></script>
+{% end %}
+
+{% block content %}
+<div class="container">
+    <h1>
+        <i class="fa fa-download"></i>
+        {{ _("Export XML") }}
+    </h1>
+    <br />
+    {% if errors is not None and len(errors) != 0 %}
+        {% for error in errors %}
+        <div class="alert alert-error">
+            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <h4 class="alert-heading">{{ _("ERROR") }}</h4>
+            {{ error }}
+        </div>
+        {% end %}
+    {% end %}
+    <div class="well">
+        <form class="form-horizontal" action="/admin/export/xml" method="post">
+            {% raw xsrf_form_html() %}
+            <input id="game-objects" name="game_objects" type="hidden" value="true">
+            <input id="users" name="users" type="hidden" value="false">
+            <!--
+            <h4>What do you want to export?</h4>
+            <div class="control-group">
+                <div class="btn-group" data-toggle="buttons-checkbox">
+                    <button id="export-game-objects-button" type="button" class="btn btn-primary active">
+                        Game Objects
+                    </button>
+                </div>
+            </div>
+            -->
+            <h3>&nbsp;&nbsp;{{ _("Export Game Objects") }}</h3>
+            <hr />
+            <input style="margin-bottom: 4px" type="checkbox" name="game_config" value="true" checked="checked"> {{ _("Include gameplay settings (such as those under ") }} <a href='/admin/configuration'>{{ _("configuration") }}</a>{{ _(") and logos in export.") }}
+            <br /><br />
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-download"></i>
+                        {{ _("Download File") }}
+                    </button>
+                </div>
+            </div>
+            <hr />
+            <strong>{{ _("Note") }}:</strong> {{ _("Export of gameplay settings does not include the entire server and database configuration.")}} {{ _("To restore this RTB instance, you may also need the contents under the files directory, to include the rootthebox.cfg.")}}
+        </form>
+    </div>
+</div>
+{% end %}
