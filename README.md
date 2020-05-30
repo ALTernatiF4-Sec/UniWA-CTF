@@ -35,7 +35,7 @@
 ## Who are we
 ALTernatiF4 is a team created by [mwm0s](https://github.com/mwmos) and [AlexS51](https://github.com/AlexS51). We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. We're also looking forward to reqruit new members so that we can participate in CTF challenges at a competitive level.   
 
-```
+```console
 root@UniWA-CTF:~# whoami
 mwm0s
 - CCNA
@@ -44,7 +44,7 @@ mwm0s
 - FOSS Advocate
 ```
 
-```
+```console
 root@UniWA-CTF:~# whoami
 AlexS51 
 - RPG Gamer
@@ -119,6 +119,14 @@ Password:`rootthebox`
 
 - [John The Ripper](http://www.openwall.com/john/) - Swiss army knife of Password Cracking.
 - [Zip2john](https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/src/zip2john.c) - Tool allowing to extract the hash of a password protected .zip file, so that can be cracked with John The Ripper.
+  - Example
+  ```console
+  # First step is to extract the hash from your password protected .zip or .rar and save it to a .txt file
+  root@UniWA-CTF:~# zip2john foo.zip > hash.txt
+  # Then you can crack the hash with john utilizing a ready-made wordlist from those that come out of the box with penetration testing distros
+  root@UniWA-CTF:~# john --format=zip --wordlist /usr/share/wordlists/rockyou.txt hash.txt
+  
+  ```
 
 
 ## Cryptography
