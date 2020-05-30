@@ -5,7 +5,7 @@
 
 <p align="center">
   <span>English</span> |
-  <a href="https://github.com/mwmos/uniWA-CTF/tree/master/documentation/greek">Ελληνικά</a> |
+  <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/tree/master/documentation/greek">Ελληνικά</a> |
   <a href="/link/gia/rwsika">Pусский</a> 
 </p>
 
