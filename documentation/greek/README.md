@@ -64,7 +64,7 @@ AlexS51
 Παρακάτω παραθέτονται κάποιες πηγές για θέματα στα οποία θεωρούμε ότι ο τελικός χρήστης πρέπει να έχει κάποια οικειότητα έτσι ώστε να ξεκινήσει να λύνει τα challenges και τα boot2root VMs.
 
 ### Κρυπτογραφία
-- [Κώδικας του Καίασαρα](https://en.wikipedia.org/wiki/Caesar_cipher)
+- [Κώδικας του Καίσαρα](https://en.wikipedia.org/wiki/Caesar_cipher)
 - [Αλγόριθμος κρυπτογράφησης Vigenère](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 
 ### Αντίστροφη Μηχανική
@@ -88,7 +88,8 @@ AlexS51
 - [Code Obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software))
 
 ## Λειτουργικά Συστήματα
-*We suggest that you use a GNU/Linux based penetration testing distribitution to solve the challenges. Although technically you could use the OS of your taste, many of the tools that we suggest are coming pre-installed and ready to use in the distributions described below, so that you can just install them on a VM and start hacking!*
+
+*Συνιστούμε να χρησιμοποιήσετε μια εξειδικευμένη διανομή GNU/Linux για την λύση των challenges. Παρότι είναι εφικτό να χρησιμοποιήσετε οποιοδήποτε λειτουργικό της αρεσκείας σας, πολλά από τα προτεινόμενα εργαλεία έρχονται προεγκατεστημένα και έτοιμα προς χρήση με τις παρακάτω διανομές, έτσι ώστε να ξεκινήσετε το hacking κατ'ευθείαν μετά από την επιτυχή εγκατάσταση κάποιας από αυτής μέσα σε μια εικονική μηχανη.*
 
 - [BlackArch](https://blackarch.org/) - An Arch Linux-based distribution backed by a community of volunteers.
 - [Kali Linux](https://www.kali.org/) - A Debian-based distribution maintained and funded by Offensive Security.
@@ -97,15 +98,15 @@ AlexS51
 # Εγκατάσταση
 
 ## Εικονικό Περιβάλλον
-Our boxes are made with [Oracle VM VirtualBox](https://www.virtualbox.org/). Its installation is an easy process which is described greatly at their website. Below we provide instructions to import and use our VMs using VirtualBox. 
+Οι εικονικές μηχανές μας έχουν δημιουργηθεί αξιοποιώντας το λογσιμικό [Oracle VM VirtualBox](https://www.virtualbox.org/). Η εγκατάσταση του είναι μια απλή διαδικασία η οποία περιγράφεται εκτενώς στην ιστοσελίδα του. Παρακάτω παραθέτουμε οδηγίες για την εισαγωγή των μηχανών μας στο περιβάλλον του VirtualBox.
 
-- Step 1: Open VirtualBox and press Ctrl+H.
-- Step 2: Click on the "Create" button and close the window.
-- Step 3: Press Ctrl+I.
-- Step 4: In the "File" form you can type the path to the VM that you want to import, or click the button at the right side.
-- Step 5: Click "Next" and then "Import".
-- Step 6: Right click on the imported VM and select "Settings".
-- Step 7: Click on the "Network" tab and make sure that the Network Adapter is attached to the "Host-only Adapter".
+- Βήμα 1: Ξεκινήστε το VirtualBox και πατήστε Ctrl+H.
+- Βήμα 2: Κάντε κλικ στο κουμπί "Create" και στη συνέχεια κλείστε το παράθυρο.
+- Βήμα 3: Πατήστε Ctrl+I.
+- Βήμα 4: Στην φόρμα "File" μπορείτε να πληκτρολογήσετε την διαδρομή της εικονικής μηχανής την οποία επιθυμείτε να εισάγετε ή κάντε κλικ στο κουμπί στην δεξιά πλευρά.
+- Βήμα 5: Κάντε κλικ στο κουμπί "Next" και στη συνέχεια "Import".
+- Βήμα 6: Κάντε δεξί κλικ στην εικονική μηχανή και επιλέξτε "Settings".
+- Βήμα 7: Κάντε κλικ στην καρτέλα "Network" και σιγουρευτείτε ότι ο Network Adapter είναι στην επιλογή "Host-only Adapter".
 
 ## Docker Deployment
 
@@ -145,7 +146,7 @@ Password:`rootthebox`
 
 ## Κρυπτογραφία
 
-*Most of the crypto challenges don't require extra tools and they can be solved with the "CyberChef" tool which is integrated in the RootTheBox framework. However, we would like to also provide alternatives, so the user/player can learn about these and be ready to utilize them in future challenges.*
+*Οι περισσότερες από τις προκλήσεις με θέμα την κρυπτογραφία δεν χρειάζονται επιπλέον εργαλεία και μπορούν να λυθούν αξιοποιώντας το εργαλείο "CyberChef" το οποίο είναι ενσωματωμένο στο RootTheBox. Παρ' όλα αυτά παρέχουμε και κάποια εναλλακτικά εργαλεία με τα οποία θεωρούμε ότι είναι καλό να υπάρχει κάποια οικειότητα.*
 
 - [Dcode.fr](https://www.dcode.fr) - A website containing various tools that can be utilized for CTFs such as well-known cryptographic ciphers decoders, esoteric programming languages decoders, etc.  
 - [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx) - An online tool that can brute force the key of a Vigenère ciphertext, with great accuracy. 
@@ -188,8 +189,9 @@ Password:`rootthebox`
 
 - [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide
 variety of files.
+- [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
+- [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging.
 - [Wireshark](https://www.wireshark.org/) - Widely-used network protocol analyzer.
-- [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging..
 
 ## Διάφορα
 
@@ -204,6 +206,3 @@ variety of files.
 
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
-
-## Στεγανογραφία
-- [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
