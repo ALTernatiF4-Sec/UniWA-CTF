@@ -194,25 +194,26 @@ variety of files.
 
 ## Miscellaneous
 
-- [JavaScript Obfuscator Tool](https://wtools.io/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
-```
-# Examlpe of basic usage:
-# If you type a simple JS script in to a obfuscator tool.
-```
-```console
-// Paste your JavaScript code here
-function hi() {
+- [JavaScript Obfuscator Tool](https://wtools.io/javascript-obfuscator) - Online tool that transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
+  ```
+  # Example of basic usage:
+  # Type your JavaScript code to the obfuscator tool.
+  ```
+  ```console
+  // Paste your JavaScript code here
+  function hi() {
   console.log("Hello World!");
-}
-hi();
-```
-```
-#The result you earn is something like this below.
-```
-```console
-eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 0(){4.3("2 1!")}0();',6,6,'hi|World|Hello|log|console|function'.split('|'),0,{}))
+  }
+  hi();
+  ```
+  ```
+  # Click the "Obfuscate" button.
+  # The result will be somthing similar to the one below.
+  ```
+  ```console
+  eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e) {return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 0(){4.3("2 1!")}0();',6,6,'hi|World|Hello|log|console|function'.split('|'),0,{}))
 
-```
+  ```
 
 - [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
 
