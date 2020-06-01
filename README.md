@@ -30,7 +30,6 @@
   - [Miscellaneous](#miscellaneous)
   - [Reverse Engineering](#reverse-engineering)
   - [Web](#web)
-  - [Steganography](#steganography)
 
 # Introduction
 
@@ -113,13 +112,31 @@ Our boxes are made with [Oracle VM VirtualBox](https://www.virtualbox.org/). Its
 ## Docker Deployment
 
 ### Clone UniWA-CTF
-1. Clone the Github repository, `git clone ....`
-2. Switch to the downloaded directory, `cd ...`
-
+1. Clone the UniWA-CTF repository 
+  ```console
+  root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
+  ```
+2. Switch to the downloaded directory
+  ```console
+  root@UniWA-CTF:~# cd UniWA-CTF
+  ```
+3. Compose the application with docker-compose
+  ```console
+  root@UniWA-CTF:~# docker-compose up
+  ```
+4. There is an issue that doesn't allow our logo to appear. The workaround that works is to delete the downloaded repo
+   and re-compose it.
+  ```console
+  root@UniWA-CTF:~# cd ..
+  root@UniWA-CTF:~# rm -r UniWA-CTF
+  root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
+  root@UniWA-CTF:~# cd UniWA-CTF
+  root@UniWA-CTF:~# docker-compose up
+  ```
+   
 ### Run UniWA-CTF
-`docker-compose up`
 
-By default UniWA-CTF runs on port 8888. To access it just write `http://localhost:8888` on your browser. The default admin credentials are:
+By default UniWA-CTF runs on port 8888. To access it just write `http://localhost:8888` (or the IP of the machine if you are using a VM) on your browser. The default admin credentials are:
 
 Username:`admin`
 
@@ -156,6 +173,25 @@ Password:`rootthebox`
 ## Directory Enumeration
 
 - [Dirb](http://dirb.sourceforge.net/) - A Web Content Scanner.It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary based attack against a web server and analyzing the response.
+  ```
+  # Example of basic usage:
+  # To scan the HTTP port (80) with the default dirb wordlist the syntax is the following
+  ```
+  ```console
+  root@UniWA-CTF:~# dirb http://<IP ADDRESS>:80
+  ```
+  ```
+  # To scan with a custom wordlist you have to type: 
+  ```
+  ```console
+  root@UniWA-CTF:~# dirb http://<IP ADRESS>:80 /path/to/the/wordlist
+  ```
+  ```
+  # More options and info can be found in the manual page. You can read it by typing:
+  ```
+  ```console
+  root@UniWA-CTF:~# man dirb
+  ```
 - [Dirbuster](https://owasp.org/projects/) - A multi threaded Java application designed to brute force directories and files names on web/application servers.
 - [Gobuster](https://github.com/OJ/gobuster) - Directory/File, DNS and VHost busting tool written in Go.
 
@@ -197,8 +233,10 @@ Password:`rootthebox`
 
 - [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide
 variety of files.
+- [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
+- [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging.
 - [Wireshark](https://www.wireshark.org/) - Widely-used network protocol analyzer.
-- [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging..
+
 
 ## Miscellaneous
 
@@ -233,6 +271,3 @@ variety of files.
 
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
-
-## Steganography
-- [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
