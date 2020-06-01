@@ -23,6 +23,7 @@
 - [Tools](#tools)
   - [Bruteforcers](#bruteforcers)
   - [Cryptography](#cryptography)
+  - [Directory Enumeration](#directory-enumeration)
   - [Exploits](#exploits)
   - [Forensics](#forensics)
   - [Notekeeping](#notekeeping)
@@ -152,6 +153,13 @@ Password:`rootthebox`
 - [Dcode.fr](https://www.dcode.fr) - A website containing various tools that can be utilized for CTFs such as well-known cryptographic ciphers decoders, esoteric programming languages decoders, etc.  
 - [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx) - An online tool that can brute force the key of a Vigenère ciphertext, with great accuracy. 
 
+## Directory Enumeration
+
+- [Dirb](http://dirb.sourceforge.net/) - A Web Content Scanner.It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary based attack against a web server and analyzing the response.
+- [Dirbuster](https://owasp.org/projects/) - A multi threaded Java application designed to brute force directories and files names on web/application servers.
+- [Gobuster](https://github.com/OJ/gobuster) - Directory/File, DNS and VHost busting tool written in Go.
+
+
 ## Exploits
 
 *Tools used for solving exploitation challenges in boot2root VMs.* 
@@ -184,7 +192,6 @@ Password:`rootthebox`
   root@UniWA-CTF:~# locate 48303.txt
   /usr/share/exploitdb/exploits/php/webapps/48303.txt
   ```
-
 
 ## Forensics
 
