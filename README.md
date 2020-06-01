@@ -26,9 +26,10 @@
   - [Exploits](#exploits)
   - [Forensics](#forensics)
   - [Notekeeping](#notekeeping)
-  - [Steganography](#stegano)
-  - [Web](#web)
+  - [Miscellaneous](#miscellaneous)
   - [Reverse Engineering](#reverse-engineering)
+  - [Web](#web)
+  - [Steganography](#steganography)
 
 # Introduction
 
@@ -193,7 +194,26 @@ variety of files.
 
 ## Miscellaneous
 
-- [JavaScript Obfuscator Tool](https://github.com/javascript-obfuscator/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
+- [JavaScript Obfuscator Tool](https://wtools.io/javascript-obfuscator) - This tool transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
+```
+# Examlpe of basic usage:
+# If you type a simple JS script in to a obfuscator tool.
+```
+```console
+// Paste your JavaScript code here
+function hi() {
+  console.log("Hello World!");
+}
+hi();
+```
+```
+#The result you earn is something like this below.
+```
+```console
+eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 0(){4.3("2 1!")}0();',6,6,'hi|World|Hello|log|console|function'.split('|'),0,{}))
+
+```
+
 - [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
 
 ## Notekeeping
