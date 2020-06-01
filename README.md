@@ -227,8 +227,9 @@ Password:`rootthebox`
 
 ## Exploits
 
-*Tools used for solving exploitation challenges in boot2root VMs.* 
+*Tools used for solving exploitation challenges in boot2root VMs.*
 
+- [GTFObins](https://gtfobins.github.io/) - A curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions.
 - [Metasploit](http://www.metasploit.com/) - Penetration testing framework containing various CVEs and payloads, with a user-friendly terminal based UI for easier use.
 - [SearchSploit](https://www.exploit-db.com/searchsploit) - CLI Tool that allows offline searching for exploits contained in the exploit-db.
   ```
@@ -269,7 +270,45 @@ Password:`rootthebox`
   ```
 variety of files.
 - [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
+  ```
+  # Example of basic usage:
+  # This command will embed the file secret.txt in the cover file picture.jpg. 
+  ```
+  ```console
+  root@UniWA-CTF:~# steghide embed -cf picture.jpg -ef secret.txt
+  Enter passphrase:
+  Re-Enter passphrase:
+  embedding "secret.txt" in "picture.jpg"... done
+  ```
+  ```
+  # After you have embedded your secret data as shown above you can send the file picture.jpg to the person who should
+  # receive the secret message. The receiver has to use steghide in the following way: 
+  ```
+  ```console
+  root@UniWA-CTF:~# steghide extract -sf picture.jpg
+  Enter passphrase:
+  wrote extracted data to "secret.txt".
+  ```
+  ```
+  # If the supplied passphrase is correct, the contents of the original file secret.txt will be extracted from the stego 
+  # file picture.jpg and saved in the current directory.
+  # More options and info can be found in the manual page. You can read it by typing:
+  ```
+  ```console
+  root@UniWA-CTF:~# man steghide
+  ```
+  
 - [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging.
+  ```
+  # Example of basic usage:
+  ```
+  ```console
+  root@UniWA-CTF:~# tcpflow -r foo.pcapng
+  ```
+  ```
+  # Stdout won't give something but if you ls the contents of your folder you will see that
+  # there are some new folders and files that you can enumerate.
+  ```
 - [Wireshark](https://www.wireshark.org/) - Widely-used network protocol analyzer.
 
 
@@ -293,7 +332,6 @@ variety of files.
   ```
   ```console
   eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e) {return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 0(){4.3("2 1!")}0();',6,6,'hi|World|Hello|log|console|function'.split('|'),0,{}))
-
   ```
 
 - [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
