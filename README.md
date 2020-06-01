@@ -66,6 +66,7 @@ We took the decision to use only Free and Open-Source Software (FOSS). This deci
 Below we introduce some reading material for concepts that we think they are crucial for solving the challenges and the boot2root VMs.
 
 ### Cryptography
+- [Base64](https://en.wikipedia.org/wiki/Base64)
 - [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 - [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 
