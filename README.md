@@ -79,6 +79,7 @@ Below we introduce some reading material for concepts that we think they are cru
 - [pcap](https://en.wikipedia.org/wiki/Pcap)
 
 ### Web
+- [Robots Exclusion Stndard](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
 - [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
 
 ### OSINT
@@ -113,26 +114,26 @@ Our boxes are made with [Oracle VM VirtualBox](https://www.virtualbox.org/). Its
 
 ### Clone UniWA-CTF
 1. Clone the UniWA-CTF repository 
-  ```console
-  root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
-  ```
+   ```console
+   root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
+   ```
 2. Switch to the downloaded directory
-  ```console
-  root@UniWA-CTF:~# cd UniWA-CTF
-  ```
+   ```console
+   root@UniWA-CTF:~# cd UniWA-CTF
+   ```
 3. Compose the application with docker-compose
-  ```console
-  root@UniWA-CTF:~# docker-compose up
-  ```
+   ```console
+   root@UniWA-CTF:~# docker-compose up
+   ```
 4. There is an issue that doesn't allow our logo to appear. The workaround that works is to delete the downloaded repo
    and re-compose it.
-  ```console
-  root@UniWA-CTF:~# cd ..
-  root@UniWA-CTF:~# rm -r UniWA-CTF
-  root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
-  root@UniWA-CTF:~# cd UniWA-CTF
-  root@UniWA-CTF:~# docker-compose up
-  ```
+   ```console
+   root@UniWA-CTF:~# cd ..
+   root@UniWA-CTF:~# rm -r UniWA-CTF
+   root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
+   root@UniWA-CTF:~# cd UniWA-CTF
+   root@UniWA-CTF:~# docker-compose up
+   ```
    
 ### Run UniWA-CTF
 
@@ -169,6 +170,7 @@ Password:`rootthebox`
 
 - [Dcode.fr](https://www.dcode.fr) - A website containing various tools that can be utilized for CTFs such as well-known cryptographic ciphers decoders, esoteric programming languages decoders, etc.  
 - [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx) - An online tool that can brute force the key of a Vigenère ciphertext, with great accuracy. 
+- [base64](https://linux.die.net/man/1/base64) - Base64 encode/decode data and print to standard output 
 
 ## Directory Enumeration
 
@@ -232,6 +234,9 @@ Password:`rootthebox`
 ## Forensics
 
 - [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide
+  ```
+  # Example of basic usage:
+  ```
 variety of files.
 - [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
 - [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging.
