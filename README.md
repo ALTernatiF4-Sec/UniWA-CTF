@@ -170,7 +170,22 @@ Password:`rootthebox`
 
 - [Dcode.fr](https://www.dcode.fr) - A website containing various tools that can be utilized for CTFs such as well-known cryptographic ciphers decoders, esoteric programming languages decoders, etc.  
 - [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx) - An online tool that can brute force the key of a Vigenère ciphertext, with great accuracy. 
-- [base64](https://linux.die.net/man/1/base64) - Base64 encode/decode data and print to standard output 
+- [base64](https://linux.die.net/man/1/base64) - Base64 encode/decode data and print to standard output
+  ```
+  # Example of basic usage:
+  # You can encode messages by piping the stdout to the base64 program
+  ```
+  ```console
+  root@UniWA-CTF:~# echo "Hello World!" | base64
+  SGVsbG8gV29ybGQhCg==
+  ```
+  ```
+  # You can decode messages with the --decode option 
+  ```
+  ```console
+  root@UniWA-CTF:~# echo "SGVsbG8gV29ybGQhCg==" | base64 --decode
+  Hello World!
+  ```
 
 ## Directory Enumeration
 
@@ -186,7 +201,7 @@ Password:`rootthebox`
   # To scan with a custom wordlist you have to type: 
   ```
   ```console
-  root@UniWA-CTF:~# dirb http://<IP ADRESS>:80 /path/to/the/wordlist
+  root@UniWA-CTF:~# dirb http://<IP ADDRESS>:80 /path/to/the/wordlist
   ```
   ```
   # More options and info can be found in the manual page. You can read it by typing:
@@ -196,7 +211,19 @@ Password:`rootthebox`
   ```
 - [Dirbuster](https://owasp.org/projects/) - A multi threaded Java application designed to brute force directories and files names on web/application servers.
 - [Gobuster](https://github.com/OJ/gobuster) - Directory/File, DNS and VHost busting tool written in Go.
-
+  ```
+  # Example of basic usage:
+  # To scan the HTTP port (80) with the wordlist of your choice, you type the following:
+  ```
+  ```console
+  root@UniWA-CTF:~# gobuster -u http://<IP ADDRESS>:80 -w /path/to/the/wordlist -o /path/to/your/output/file
+  ```
+  ```
+  # More options and info can be found in the help page. You can read it by typing:
+  ```
+  ```console
+  root@UniWA-CTF:~# gobuster --help
+  ```
 
 ## Exploits
 
@@ -233,9 +260,12 @@ Password:`rootthebox`
 
 ## Forensics
 
-- [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide
+- [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide.
   ```
   # Example of basic usage:
+  ```
+  ```console
+  root@UniWA-CTF:~# exiftool /path/to/your/file
   ```
 variety of files.
 - [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
