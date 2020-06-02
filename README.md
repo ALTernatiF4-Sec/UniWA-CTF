@@ -63,13 +63,13 @@ We took the decision to use only Free and Open-Source Software (FOSS). This deci
 # Getting Started
 
 ## Theoretical Background
-Below we introduce some reading material for concepts that we think they are crucial for solving the challenges and the boot2root VMs.
+Below we introduce some reading material for concepts that we think they are crucial for solving the challenges and the boot2root VMs. You don't have to be a master in every single topic, but a level of familiarity is required.
 
 ### Cryptography
 - [Base64](https://en.wikipedia.org/wiki/Base64)
 - [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
-- [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 - [Substitution cipher](https://en.wikipedia.org/wiki/Substitution_cipher)
+- [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 
 ### Reverse Engineering
 - [Reverse Engineering](https://en.wikipedia.org/wiki/Reverse_engineering)
@@ -87,10 +87,10 @@ Below we introduce some reading material for concepts that we think they are cru
 ### OSINT
 
 ### Miscellaneous
+- [Code Obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software))
+- [Dictionary Attack](https://en.wikipedia.org/wiki/Dictionary_attack)
 - [Esoteric Programming Languages](https://en.wikipedia.org/wiki/Esoteric_programming_language)
 - [Magic Bytes](https://en.wikipedia.org/wiki/List_of_file_signatures)
-- [Dictionary Attack](https://en.wikipedia.org/wiki/Dictionary_attack)
-- [Code Obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software))
 
 ## Operating Systems
 *We suggest that you use a GNU/Linux based penetration testing distribitution to solve the challenges. Although technically you could use the OS of your taste, many of the tools that we suggest are coming pre-installed and ready to use in the distributions described below, so that you can just install them on a VM and start hacking!*
@@ -168,11 +168,9 @@ Password:`rootthebox`
 
 ## Cryptography
 
-*Most of the crypto challenges don't require extra tools and they can be solved with the "CyberChef" tool which is integrated in the RootTheBox framework. However, we would like to also provide alternatives, so the user/player can learn about these and be ready to utilize them in future challenges.*
+*Most of the crypto challenges don't require extra tools and they can be solved with the "CyberChef" tool which is integrated in the RootTheBox engine. However, we would like to also provide alternatives, so the user/player can learn about these and be ready to utilize them in future challenges.*
 
-- [Dcode.fr](https://www.dcode.fr) - A website containing various tools that can be utilized for CTFs such as well-known cryptographic ciphers decoders, esoteric programming languages decoders, etc.  
-- [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx) - An online tool that can brute force the key of a Vigenère ciphertext, with great accuracy. 
-- [base64](https://linux.die.net/man/1/base64) - Base64 encode/decode data and print to standard output
+- [Βase64](https://linux.die.net/man/1/base64) - Base64 encode/decode data and print to standard output
   ```
   # Example of basic usage:
   # You can encode messages by piping the stdout to the base64 program
@@ -188,6 +186,9 @@ Password:`rootthebox`
   root@UniWA-CTF:~# echo "SGVsbG8gV29ybGQhCg==" | base64 --decode
   Hello World!
   ```
+- [Dcode.fr](https://www.dcode.fr) - A website containing various tools that can be utilized for CTFs such as well-known cryptographic ciphers decoders, esoteric programming languages decoders, etc.  
+- [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx) - An online tool that can brute force the key of a Vigenère ciphertext, with great accuracy. 
+
 
 ## Directory Enumeration
 
@@ -316,6 +317,11 @@ variety of files.
 
 ## Miscellaneous
 
+- [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
+  ```
+  # This tool can deobfuscate JavaScript code. Type the obfuscate like the example below
+  # Then press Ctrl+Enter the result will be the source code.
+  ```
 - [JavaScript Obfuscator Tool](https://wtools.io/javascript-obfuscator) - Online tool that transforms your original JavaScript source code into a new representation that's harder to understand, copy, re-use and modify without authorization.
   ```
   # Example of basic usage:
@@ -336,21 +342,13 @@ variety of files.
   eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e) {return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 0(){4.3("2 1!")}0();',6,6,'hi|World|Hello|log|console|function'.split('|'),0,{}))
   ```
 
-- [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
-  ```
-  # This tool deobfuscate Javascript code. Type the obfuscate code of above example
-  # then click Ctrl+Enter and as result will be taken the source code.
-  ```
-
 ## Notekeeping
 
 - [Cherrytree](https://www.giuspen.com/cherrytree/) - A hierarchical note taking application, featuring rich text and syntax highlighting, storing data in a single xml or sqlite file.
 
 ## Reverse Engineering
 
-- [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
-- [IDA Freeware](https://www.hex-rays.com/products/ida/support/download_freeware/) - The IDA Disassembler and Debugger is an interactive, programmable, extensible, multi-processor disassembler hosted on Windows, Linux, or Mac OS X. IDA has become the de-facto standard for the analysis of hostile code, vulnerability research and commercial-off-the-shelf validation.
-- [File (command)](https://en.wikipedia.org/wiki/File_(command)) - The file command is a standard program of Unix and Unix-like operating systems for recognizing the type of data contained in a computer file.
+- [File](https://en.wikipedia.org/wiki/File_(command)) - A standard program of Unix and Unix-like operating systems for recognizing the type of data contained in a computer file.
   ```
   # Example of basic usage:
   ```
@@ -359,6 +357,11 @@ variety of files.
   example1.c: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux
   x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=62e095619860c76a7fc2fa6a5706e93a1e901403, not stripped
   ```
+  ```
+  # You can see that although the file ends in ".c" the reality is that the file is an ELF executable.
+  # GNU/Linux based operating systems recognize the type of a file by using the "Magic Bytes" and not their name suffix! 
+  ```
+
 - [GDB](https://www.gnu.org/software/gdb/) - The GNU Project Debugger.
   ```
   # Example of basic usage:
@@ -385,9 +388,13 @@ variety of files.
   Hello World [Inferior 1 (process 7142) exited normally]
   ```
   ```
-  # To run the program type 'run' and if the debugger dont found errors on source code
+  # To run the program type 'run' and if the debugger doesn't found errors on source code
   # the program will be executed normally.
   ```
+- [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
+
+- [IDA Freeware](https://www.hex-rays.com/products/ida/support/download_freeware/) - An interactive, programmable, extensible, multi-processor disassembler hosted on Windows, GNU/Linux, or Mac OS X.
+
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
   ```
   # Example of basic usage:
