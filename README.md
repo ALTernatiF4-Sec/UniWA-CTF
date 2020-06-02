@@ -338,7 +338,8 @@ variety of files.
 
 - [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
   ```
-  # This tool deobfuscate Javascript code. Type the obfuscate code of above example, then click Ctrl+Enter and as result will be taken the source code.
+  # This tool deobfuscate Javascript code. Type the obfuscate code of above example
+  # then click Ctrl+Enter and as result will be taken the source code.
   ```
 
 ## Notekeeping
@@ -384,7 +385,8 @@ variety of files.
   Hello World [Inferior 1 (process 7142) exited normally]
   ```
   ```
-  # To run the program type 'run' and if the debugger dont found errors on source code, the program will be executed normally.
+  # To run the program type 'run' and if the debugger dont found errors on source code
+  # the program will be executed normally.
   ```
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
   ```
@@ -418,5 +420,4 @@ variety of files.
   __FRAME_END__
   __init_array_end
   ...
-  ```
   ```
