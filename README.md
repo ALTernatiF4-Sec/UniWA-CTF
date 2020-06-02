@@ -69,6 +69,7 @@ Below we introduce some reading material for concepts that we think they are cru
 - [Base64](https://en.wikipedia.org/wiki/Base64)
 - [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 - [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
+- [Substitution cipher](https://en.wikipedia.org/wiki/Substitution_cipher)
 
 ### Reverse Engineering
 - [Reverse Engineering](https://en.wikipedia.org/wiki/Reverse_engineering)
@@ -329,13 +330,16 @@ variety of files.
   ```
   ```
   # Click the "Obfuscate" button.
-  # The result will be somthing similar to the one below.
+  # The result will be something similar to the one below.
   ```
   ```console
   eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e) {return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 0(){4.3("2 1!")}0();',6,6,'hi|World|Hello|log|console|function'.split('|'),0,{}))
   ```
 
 - [Deobfuscate Tool](https://github.com/beautify-web/js-beautify) - Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable, etc.
+  ```
+  # This tool deobfuscate Javascript code. Type the obfuscate code of above example, then click Ctrl+Enter and as result will be taken the source code.
+  ```
 
 ## Notekeeping
 
@@ -344,4 +348,6 @@ variety of files.
 ## Reverse Engineering
 
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
+- [GDB](https://www.gnu.org/software/gdb/) - The GNU Project Debugger.
+- [IDA Freeware](https://www.hex-rays.com/products/ida/support/download_freeware/) - The IDA Disassembler and Debugger is an interactive, programmable, extensible, multi-processor disassembler hosted on Windows, Linux, or Mac OS X. IDA has become the de-facto standard for the analysis of hostile code, vulnerability research and commercial-off-the-shelf validation.
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
