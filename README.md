@@ -264,14 +264,14 @@ Password:`rootthebox`
 
 ## Forensics
 
-- [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide.
+- [ExifTool](https://exiftool.org/) - A customizable set of Perl modules plus a full-featured CLI application for reading and writing meta information in a wide variety of files.
   ```
   # Example of basic usage:
   ```
   ```console
   root@UniWA-CTF:~# exiftool /path/to/your/file
   ```
-variety of files.
+
 - [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
   ```
   # Example of basic usage:
@@ -293,8 +293,8 @@ variety of files.
   wrote extracted data to "secret.txt".
   ```
   ```
-  # If the supplied passphrase is correct, the contents of the original file secret.txt will be extracted from the stego 
-  # file picture.jpg and saved in the current directory.
+  # If the supplied passphrase is correct, the contents of the original file secret.txt will be extracted  
+  # from the stego file picture.jpg and saved in the current directory.
   # More options and info can be found in the manual page. You can read it by typing:
   ```
   ```console
@@ -359,7 +359,8 @@ variety of files.
   ```
   ```
   # You can see that although the file ends in ".c" the reality is that the file is an ELF executable.
-  # GNU/Linux based operating systems recognize the type of a file by using the "Magic Bytes" and not their name suffix! 
+  # GNU/Linux based operating systems recognize the type of a file by using the "Magic Bytes" and not 
+  # their name suffix! 
   ```
 
 - [GDB](https://www.gnu.org/software/gdb/) - The GNU Project Debugger.
