@@ -285,7 +285,7 @@ Password:`rootthebox`
   ```
   ```
   # After you have embedded your secret data as shown above you can send the file picture.jpg to  
-  # the person who shouldreceive the secret message. The receiver has to use steghide in the 
+  # the person who should receive the secret message. The receiver has to use steghide in the 
   # following way: 
   ```
   ```console
@@ -294,7 +294,7 @@ Password:`rootthebox`
   wrote extracted data to "secret.txt".
   ```
   ```
-  # If the supplied passphrase is correct, the contents of the original file secret.txt will be extracted  
+  # If the supplied passphrase is correct, the contents of the original file secret.txt will be extracted
   # from the stego file picture.jpg and saved in the current directory.
   # More options and info can be found in the manual page. You can read it by typing:
   ```
