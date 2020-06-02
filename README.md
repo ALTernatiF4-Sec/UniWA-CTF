@@ -348,6 +348,75 @@ variety of files.
 ## Reverse Engineering
 
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - A software reverse engineering (SRE) framework.
-- [GDB](https://www.gnu.org/software/gdb/) - The GNU Project Debugger.
 - [IDA Freeware](https://www.hex-rays.com/products/ida/support/download_freeware/) - The IDA Disassembler and Debugger is an interactive, programmable, extensible, multi-processor disassembler hosted on Windows, Linux, or Mac OS X. IDA has become the de-facto standard for the analysis of hostile code, vulnerability research and commercial-off-the-shelf validation.
+- [File (command)](https://en.wikipedia.org/wiki/File_(command)) - The file command is a standard program of Unix and Unix-like operating systems for recognizing the type of data contained in a computer file.
+  ```
+  # Example of basic usage:
+  ```
+  ```console
+  root@UniWA-CTF:~# file example1.c 
+  example1.c: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux
+  x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=62e095619860c76a7fc2fa6a5706e93a1e901403, not stripped
+  ```
+- [GDB](https://www.gnu.org/software/gdb/) - The GNU Project Debugger.
+  ```
+  # Example of basic usage:
+  ```
+  ```console
+  root@UniWA-CTF:~# gdb example1.c
+  GNU gdb (Ubuntu 8.1-0ubuntu3.2) 8.1.0.20180409-git
+  Copyright (C) 2018 Free Software Foundation, Inc.
+  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+  This is free software: you are free to change and redistribute it.
+  There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+  and "show warranty" for details.
+  This GDB was configured as "x86_64-linux-gnu".
+  Type "show configuration" for configuration details.
+  For bug reporting instructions, please see:
+  <http://www.gnu.org/software/gdb/bugs/>.
+  Find the GDB manual and other documentation resources online at:
+  <http://www.gnu.org/software/gdb/documentation/>.
+  For help, type "help".
+  Type "apropos word" to search for commands related to "word"...
+  Reading symbols from example1.c...(no debugging symbols found)...done.
+  (gdb) run
+  Starting program: /home/ubusrv/example1.c 
+  Hello World [Inferior 1 (process 7142) exited normally]
+  ```
+  ```
+  # To run the program type 'run' and if the debugger dont found errors on source code, the program will be executed normally.
+  ```
 - [Strings](https://en.wikipedia.org/wiki/Strings_(Unix)) - Binary Analysis Utility that finds and prints text strings embedded in binary files such as executables.
+  ```
+  # Example of basic usage:
+  ```
+  ```console
+  root@UniWA-CTF:~# strings example1.c
+  /lib64/ld-linux-x86-64.so.2
+  libc.so.6
+  printf
+  __cxa_finalize
+  __libc_start_main
+  GLIBC_2.2.5
+  _ITM_deregisterTMCloneTable
+  __gmon_start__
+  _ITM_registerTMCloneTable
+  AWAVI
+  AUATL
+  []A\A]A^A_
+  Hello World
+  ;*3$"
+  GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+  crtstuff.c
+  deregister_tm_clones
+  __do_global_dtors_aux
+  completed.7698
+  __do_global_dtors_aux_fini_array_entry
+  frame_dummy
+  __frame_dummy_init_array_entry
+  example.c
+  __FRAME_END__
+  __init_array_end
+  ...
+  ```
+  ```
