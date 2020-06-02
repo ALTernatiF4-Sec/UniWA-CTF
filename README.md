@@ -284,8 +284,9 @@ Password:`rootthebox`
   embedding "secret.txt" in "picture.jpg"... done
   ```
   ```
-  # After you have embedded your secret data as shown above you can send the file picture.jpg to the person who should
-  # receive the secret message. The receiver has to use steghide in the following way: 
+  # After you have embedded your secret data as shown above you can send the file picture.jpg to  
+  # the person who shouldreceive the secret message. The receiver has to use steghide in the 
+  # following way: 
   ```
   ```console
   root@UniWA-CTF:~# steghide extract -sf picture.jpg
