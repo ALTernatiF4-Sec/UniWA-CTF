@@ -56,7 +56,7 @@ AlexS51
 
 
 ## Ελεύθερο Λογισμικό και Λογισμικό Ανοιχτού Κώδικα
-Για τη δημιουργία της διπλωματικής χρησιμοποιήθηκε αποκλειστικά Ελεύθερο Λογισμικό και Λογισμικό Ανοιχτού Κώδικα (ΕΛΛΑΚ). Η απόφαση αυτή βασίστηκε το γεγονός ότι η βοηθηθήκαμε πάρα πολύ από την κοινότητα του ΕΛΛΑΚ. Επίσης τις περισσότερες φορές αυτό το είδος λογισμικού είναι δωρεάν, αυτό βοηθάει όχι μόνο εμάς σαν developers αλλά και τον τελικό χρήστη, καθώς δεν υπάρχει η ανάγκη αγοράς κάποιας άδειας λογισμικού για να χρησιμοποιήσει, να κλωνοποιήσει ή να προσφέρει στο πρότζεκτ.   
+Για τη δημιουργία της διπλωματικής χρησιμοποιήθηκε αποκλειστικά Ελεύθερο Λογισμικό και Λογισμικό Ανοιχτού Κώδικα (ΕΛΛΑΚ). Η απόφαση αυτή βασίστηκε το γεγονός ότι η βοηθηθήκαμε σε μεγάλο βαθμό από την κοινότητα του ΕΛΛΑΚ. Επίσης τις περισσότερες φορές αυτό το είδος λογισμικού είναι δωρεάν, αυτό βοηθάει όχι μόνο εμάς σαν developers αλλά και τον τελικό χρήστη, καθώς δεν υπάρχει η ανάγκη αγοράς κάποιας άδειας λογισμικού για να χρησιμοποιήσει, να κλωνοποιήσει ή να προσφέρει στο πρότζεκτ.   
 
 # Ξεκινώντας
 
@@ -91,9 +91,9 @@ AlexS51
 
 *Συνιστούμε να χρησιμοποιήσετε μια εξειδικευμένη διανομή GNU/Linux για την λύση των challenges. Παρότι είναι εφικτό να χρησιμοποιήσετε οποιοδήποτε λειτουργικό της αρεσκείας σας, πολλά από τα προτεινόμενα εργαλεία έρχονται προεγκατεστημένα και έτοιμα προς χρήση με τις παρακάτω διανομές, έτσι ώστε να ξεκινήσετε το hacking κατ'ευθείαν μετά από την επιτυχή εγκατάσταση κάποιας από αυτής μέσα σε μια εικονική μηχανη.*
 
-- [BlackArch](https://blackarch.org/) - An Arch Linux-based distribution backed by a community of volunteers.
-- [Kali Linux](https://www.kali.org/) - A Debian-based distribution maintained and funded by Offensive Security.
-- [Parrot OS](https://www.parrotsec.org/) - A Debian-based distribution which includes, except the penetration testing tools, also a bunch of privacy tools. A community-driven project supported by Parrot Security.
+- [BlackArch](https://blackarch.org/) - Μια διανομή βασισμένη στο Arch Linux υποστηριζόμενη από μια κοινότητα εθελοντών.
+- [Kali Linux](https://www.kali.org/) - Μια διανομή βασισμένη στο Debian συντηρούμενη και χρηματοδοτούμενη από την Offensive Security.
+- [Parrot OS](https://www.parrotsec.org/) - Μια διανομή βασισμένη στο Debian η οποία εκτός από τα εργαλεία δοκιμών παρείσδυσης παρέχει επίσης εργαλεία σχετιζόμενα με την ιδιωτικότητα. Είναι ένα κοινοτικό εγχείρημα υποστηριζόμενο από την Parrot Security.    
 
 # Εγκατάσταση
 
@@ -111,13 +111,22 @@ AlexS51
 ## Docker Deployment
 
 ### Clone UniWA-CTF
-1. Clone the Github repository, `git clone ....`
-2. Switch to the downloaded directory, `cd ...`
+1. Κλωνοποιήστε το αποθετήριο από το Github
+   ```console
+   root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
+   ```
+2. Μετακινηθείτε στον φάκελο που μόλις κατεβάσατε
+   ```console
+   root@UniWA-CTF:~# cd UniWA-CTF
+   ```
+3. Συνθέστε και ξεκινήστε την εφαρμογή με την βοήθεια του docker-compose
+   ```console
+   root@UniWA-CTF:~# docker-compose up
+   ```
 
 ### Run UniWA-CTF
-`docker-compose up`
 
-By default UniWA-CTF runs on port 8888. To access it just write `http://localhost:8888` on your browser. The default admin credentials are:
+Η προεπιλογή για το UniWA-CTF είναι να τρέχει στην πόρτα 8888. Για να ξεκινήσετε να χρησιμοποιείτε την εφαρμογή, απλά γράψτε στον φυλλομετρητή σας `http://localhost:8888` (ή την IP του μηχανήματος πάνω στο οποίο τρέχει η εφαρμογή σε περίπτωση που χρησιμοποιείτε εικονική μηχανή). Τα αρχικά διαπιστευτήρια είναι τα παρακάτω:   
 
 Username:`admin`
 
@@ -127,10 +136,10 @@ Password:`rootthebox`
 
 ## Bruteforcers
 
-- [John The Ripper](http://www.openwall.com/john/) - Swiss army knife of Password Cracking.
+- [John The Ripper](http://www.openwall.com/john/) - Ο "Ελβετικός σουγιάς" του Password Cracking.
 - [Zip2john](https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/src/zip2john.c) - Tool allowing to extract the hash of a password protected .zip file, so that can be cracked with John The Ripper.
   ```
-  # Example of basic usage:
+  # Παράδειγμα χρήσης:
   # First step is to extract the hash from your password protected .zip or .rar and save it to a .txt file
   ```
   ```console
@@ -191,7 +200,7 @@ Password:`rootthebox`
 variety of files.
 - [Steghide](http://steghide.sourceforge.net/) - A steganography program that is able to hide data in various kinds of image- and audio-files.
 - [Tcpflow](https://linux.die.net/man/1/tcpflow) - A CLI tool that captures data transmitted as part of TCP connections (flows), and stores the data in a way that is convenient for protocol analysis or debugging.
-- [Wireshark](https://www.wireshark.org/) - Widely-used network protocol analyzer.
+- [Wireshark](https://www.wireshark.org/) - Ευρέως διαδομένο λογισμικό ανάλυσης πακέτων.
 
 ## Διάφορα
 
