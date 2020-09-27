@@ -7,7 +7,7 @@ services:
   webapp:
     build: .
     ports:
-      - "8888:8888"
+      - "80:80"
     volumes:
       - ./files:/opt/rtb/files:rw
     environment:
