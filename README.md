@@ -127,15 +127,6 @@ Our boxes are made with [Oracle VM VirtualBox](https://www.virtualbox.org/). Its
    ```console
    root@UniWA-CTF:~# docker-compose up
    ```
-4. There is an issue that doesn't allow our logo to appear. The workaround that works is to delete the downloaded repo
-   and re-compose it.
-   ```console
-   root@UniWA-CTF:~# cd ..
-   root@UniWA-CTF:~# rm -r UniWA-CTF
-   root@UniWA-CTF:~# git clone https://github.com/ALTernatiF4-Sec/UniWA-CTF.git
-   root@UniWA-CTF:~# cd UniWA-CTF
-   root@UniWA-CTF:~# docker-compose up
-   ```
    
 ### Run UniWA-CTF
 
