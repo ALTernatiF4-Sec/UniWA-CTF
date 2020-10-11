@@ -20,16 +20,6 @@
 - [Installation](#installation)
   - [Virtual Environment](#virtual-environment)
   - [Docker Deployment](#docker-deployment)  
-- [Tools](#tools)
-  - [Bruteforcers](#bruteforcers)
-  - [Cryptography](#cryptography)
-  - [Directory Enumeration](#directory-enumeration)
-  - [Exploits](#exploits)
-  - [Forensics](#forensics)
-  - [Notekeeping](#notekeeping)
-  - [Miscellaneous](#miscellaneous)
-  - [Reverse Engineering](#reverse-engineering)
-  - [Web](#web)
 
 # Introduction
 
