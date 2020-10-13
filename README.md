@@ -50,45 +50,6 @@ UniWA-CTF is our final year's thesis project. It's a begginer-friendly CTF chall
 ## Free and Open-Source Software
 We took the decision to use only Free and Open-Source Software (FOSS). This decision's based on the fact that we ourselves got a ton of help building that project from the FOSS community. Also most of the times that type of software comes free of charge, that helps not only us the developers but also the end-user, as he/she is not obligated to buy some licence to participate, clone or contribute to the project.   
 
-# Getting Started
-
-## Theoretical Background
-Below we introduce some reading material for concepts that we think they are crucial for solving the challenges and the boot2root VMs. You don't have to be a master in every single topic, but a level of familiarity is required.
-
-### Cryptography
-- [Base64](https://en.wikipedia.org/wiki/Base64)
-- [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
-- [Substitution cipher](https://en.wikipedia.org/wiki/Substitution_cipher)
-- [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
-
-### Reverse Engineering
-- [Reverse Engineering](https://en.wikipedia.org/wiki/Reverse_engineering)
-- [Assembly Language](https://en.wikipedia.org/wiki/Assembly_language)
-- [Ext4 Filesystem Image](https://ext4.wiki.kernel.org/index.php/Ext4_Howto)
-
-### Forensics
-- [Exif](https://en.wikipedia.org/wiki/Exif)
-- [pcap](https://en.wikipedia.org/wiki/Pcap)
-
-### Web
-- [Robots Exclusion Stndard](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
-- [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
-
-### OSINT
-
-### Miscellaneous
-- [Code Obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software))
-- [Dictionary Attack](https://en.wikipedia.org/wiki/Dictionary_attack)
-- [Esoteric Programming Languages](https://en.wikipedia.org/wiki/Esoteric_programming_language)
-- [Magic Bytes](https://en.wikipedia.org/wiki/List_of_file_signatures)
-
-## Operating Systems
-*We suggest that you use a GNU/Linux based penetration testing distribitution to solve the challenges. Although technically you could use the OS of your taste, many of the tools that we suggest are coming pre-installed and ready to use in the distributions described below, so that you can just install them on a VM and start hacking!*
-
-- [BlackArch](https://blackarch.org/) - An Arch Linux-based distribution backed by a community of volunteers.
-- [Kali Linux](https://www.kali.org/) - A Debian-based distribution maintained and funded by Offensive Security.
-- [Parrot OS](https://www.parrotsec.org/) - A Debian-based distribution which includes, except the penetration testing tools, also a bunch of privacy tools. A community-driven project supported by Parrot Security.
-
 # Installation
 
 ## Virtual Environment
