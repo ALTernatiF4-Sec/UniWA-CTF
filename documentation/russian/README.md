@@ -26,9 +26,9 @@
 root@UniWA-CTF:~# whoami
 mwm0s
 - CCNA
-- Cybersecurity Enthusiast
-- GNU/Linux Power User
-- FOSS Advocate
+- энтузиаст кибербезопасности
+- Линукс продвинутый пользователь
+- Сторонник FOSS
 ```
 
 ```console
