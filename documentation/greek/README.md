@@ -6,8 +6,10 @@
 <p align="center">
   <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/blob/master/README.md">English</a> |
   <span>Ελληνικά</span> |
-  <a href="link/gia/rwssika">Pусский</a> 
+  <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/tree/master/documentation/russian">Pусский</a> 
 </p>
+
+Για απορίες σχετικά με την εγκατάσταση, τα εργαλεία που χρειάζονται για να λυθούν τα challenges, καθώς και μια θεωρητική εισαγωγή στα διάφορα θέματα με τα οποία καταπιάνεται το UniWA-CTF μπορείτε να συμβουλευτείτε το [wiki](https://github.com/ALTernatiF4-Sec/UniWA-CTF/wiki) μας!   
 
 ### Contents
 - [Εισαγωγή](#Εισαγωγή)
