@@ -14,9 +14,6 @@
   - [Who we are](#who-we-are)
   - [The project](#the-project)
   - [Free and Open-Source software](#free-and-open-source-software)
-- [Installation](#installation)
-  - [Virtual Environment](#virtual-environment)
-  - [Docker Deployment](#docker-deployment)  
 
 # Introduction
 
