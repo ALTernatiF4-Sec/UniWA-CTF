@@ -5,22 +5,22 @@
 <p align="center"> <b>ДОКУМЕНТАЦИЯ</b> </p>
 
 <p align="center">
-  <span>English</span> |
+  <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/blob/master/README.md">English</a> |
   <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/tree/master/documentation/greek">Ελληνικά</a> |
-  <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/tree/master/documentation/russian">Pусский</a> 
+  <span>Pусский</a> 
 </p>
 
 ### Contents
 - [Введение](#introduction)
   - [Who we are](#who-we-are)
-  - [проэкт](#the-project)
-  - [свободными и открытыми исходными кодами](#free-and-open-source-software)
+  - [проэкт](#проэкт)
+  - [свободными и открытыми исходными кодами](#свободными-и-открытыми-исходными-кодами)
 
 # Введение
 
 ## Who we are
 
-АЛТернатиФ4 is a team created by [mwm0s](https://github.com/mwmos) and [AlexS51](https://github.com/AlexS51). We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. Special thanks to [Ejento](https://github.com/Ejento) for helping us with his experience.
+АЛТернатиФ4 это команда, созданная [mwm0s](https://github.com/mwmos) и [AlexS51](https://github.com/AlexS51). We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. Special thanks to [Ejento](https://github.com/Ejento) for helping us with his experience.
 
 ```console
 root@UniWA-CTF:~# whoami
