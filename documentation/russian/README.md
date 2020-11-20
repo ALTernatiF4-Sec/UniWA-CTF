@@ -14,7 +14,7 @@
 - [Введение](#Введение)
   - [Информация создателей](#who-we-are)
   - [Проэкт](#проэкт)
-  - [Свободное программное обеспечение с открытым исходным кодом](#свободными-и-открытыми-исходными-кодами)
+  - [Свободное программное обеспечение с открытым исходным кодом](#Свободное-программное-обеспечение-с-открытым-исходным-кодом)
 
 # Введение
 
@@ -42,5 +42,5 @@ AlexS51
 УниWА-ЦТФ is our final year's thesis project. It's a begginer-friendly CTF challenge designed to introduce students in various terms and techniques used in the Cybersecurity field from the perspective of the attacker. We used the [RootTheBox](https://github.com/moloch--/RootTheBox) engine, which is giving the admin an easy to use GUI, allows the user to use a variety of themes, has the CyberChef tool integrated and also introduces some Gamification elements to improve user engagement.
 
 
-## свободными и открытыми исходными кодами
+## Свободное программное обеспечение с открытым исходным кодом
 We took the decision to use only Free and Open-Source Software (FOSS). This decision's based on the fact that we ourselves got a ton of help building that project from the FOSS community. Also most of the times that type of software comes free of charge, that helps not only us the developers but also the end-user, as he/she is not obligated to buy some licence to participate, clone or contribute to the project.   
