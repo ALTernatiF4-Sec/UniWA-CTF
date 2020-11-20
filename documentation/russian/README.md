@@ -10,24 +10,24 @@
   <span>Pусский</a> 
 </p>
 
-### содержание
+### Содержание
 - [Введение](#Введение)
-  - [информация для создателей](#who-we-are)
-  - [проэкт](#проэкт)
-  - [свободными и открытыми исходными кодами](#свободными-и-открытыми-исходными-кодами)
+  - [Информация создателей](#who-we-are)
+  - [Проэкт](#проэкт)
+  - [Свободное программное обеспечение с открытым исходным кодом](#свободными-и-открытыми-исходными-кодами)
 
 # Введение
 
-## информация для создателей
+## Информация создателей
 
-АЛТернатиФ4 это команда, созданная [mwm0s](https://github.com/mwmos) и [AlexS51](https://github.com/AlexS51). We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. Special thanks to [Ejento](https://github.com/Ejento) for helping us with his experience.
+АЛТернатиФ4 это команда, созданная [mwm0s](https://github.com/mwmos) и [AlexS51](https://github.com/AlexS51). Мы двое старшие студенты Департамента Электротехники и Электроники в Университете Западной Аттики. Мы сформировали нашу команду чтобы сотрудничать и выпустить наш проект под этим лейбол в конце года. Огромная благодарность [Ejento](https://github.com/Ejento) за то, что помог нам с его опытом.
 
 ```console
 root@UniWA-CTF:~# whoami
 mwm0s
 - CCNA
-- энтузиаст кибербезопасности
-- GNU/Linux продвинутый пользователь
+- Энтузиаст кибербезопасности
+- GNU/Linux Продвинутый Пользователь
 - Сторонник FOSS
 ```
 
@@ -38,7 +38,7 @@ AlexS51
 - Ethical Hacking Beginner
 ```
 
-## проэкт
+## Проэкт
 УниWА-ЦТФ is our final year's thesis project. It's a begginer-friendly CTF challenge designed to introduce students in various terms and techniques used in the Cybersecurity field from the perspective of the attacker. We used the [RootTheBox](https://github.com/moloch--/RootTheBox) engine, which is giving the admin an easy to use GUI, allows the user to use a variety of themes, has the CyberChef tool integrated and also introduces some Gamification elements to improve user engagement.
 
 
