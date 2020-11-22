@@ -9,7 +9,7 @@
   <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/tree/master/documentation/russian">Pусский</a> 
 </p>
 
-For any question that you might have about the installation, the tools required to solve the challenges and also for a theoretical introduction to the various topics that the UniWA-CTF includes, you might want to take a look at our awesome wiki!
+For any question that you might have about the installation, the tools required to solve the challenges and also for a theoretical introduction to the various topics that the UniWA-CTF includes, you might want to take a look at our awesome [wiki](https://github.com/ALTernatiF4-Sec/UniWA-CTF/wiki)!
 
 ### Contents
 - [Introduction](#introduction)
