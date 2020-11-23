@@ -10,7 +10,7 @@
   <span>Pусский</a> 
 </p>
 
-For any question that you might have about the installation, the tools required to solve the challenges and also for a theoretical introduction to the various topics that the UniWA-CTF includes, you might want to take a look at our awesome [wiki](https://github.com/ALTernatiF4-Sec/UniWA-CTF/wiki)!
+Если у вас возникнут вопросы об установке, или про инструменты необходимые для решения проблем, а также для теоретического введения в различные темы, которые включаются в UniWA-CTF, вы можете обратиться к нашей [wiki](https://github.com/ALTernatiF4-Sec/UniWA-CTF/wiki)!
 
 ### Содержание
 - [Введение](#Введение)
@@ -41,8 +41,11 @@ AlexS51
 ```
 
 ## Проэкт
-УниWА-ЦТФ is our final year's thesis project. It's a begginer-friendly CTF challenge designed to introduce students in various terms and techniques used in the Cybersecurity field from the perspective of the attacker. We used the [RootTheBox](https://github.com/moloch--/RootTheBox) engine, which is giving the admin an easy to use GUI, allows the user to use a variety of themes, has the CyberChef tool integrated and also introduces some Gamification elements to improve user engagement.
+
+UniWA-CTF - это наша диссертация. Это удобная для новичков задача CTF, предназначенная для ознакомления студентов (или всех, кто ее использует) с различной терминологией и методами, используемыми в области кибербезопасности, с точки зрения злоумышленника. Для этого мы использовали движок [RootTheBox](https://github.com/moloch--/RootTheBox), который предоставляет администратору простой в использовании графический интерфейс, позволяет пользователю использовать различные темы, имеет встроенный инструмент CyberChef и, наконец, содержит некоторые элементы геймификации, которые делают работу более приятной.
 
 
 ## Свободное программное обеспечение с открытым исходным кодом
-We took the decision to use only Free and Open-Source Software (FOSS). This decision's based on the fact that we ourselves got a ton of help building that project from the FOSS community. Also most of the times that type of software comes free of charge, that helps not only us the developers but also the end-user, as he/she is not obligated to buy some licence to participate, clone or contribute to the project.   
+
+Для создания диссертации использовалось только бесплатное программное обеспечение и программное обеспечение с открытым исходным кодом (FOSS). Это решение было основано на том факте, что нам очень помогло сообщество (FOSS). Также большую часть времени этот тип программного обеспечения является бесплатным, это помогает не только нам как разработчикам, но и конечным пользователям, поскольку нет необходимости приобретать лицензию на программное обеспечение для использования, клонирования или предложения проекту.
+
