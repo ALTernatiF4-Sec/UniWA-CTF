@@ -1,7 +1,7 @@
 <p align="center">
   <img src="/documentation/img/logo.png">
 </p>
-<p align="center"> <b>DOCUMENTATION</b> </p>
+<p align="center"> <b>Γειά σου κόσμε!</b> </p>
 
 <p align="center">
   <a href="https://github.com/ALTernatiF4-Sec/UniWA-CTF/blob/master/README.md">English</a> |
