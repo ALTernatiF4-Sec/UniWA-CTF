@@ -1,7 +1,7 @@
 <p align="center">
   <img src="/documentation/img/logo.png">
 </p>
-<p align="center"> <b>DOCUMENTATION</b> </p>
+<p align="center"> <b>Hello World!</b> </p>
 
 <p align="center">
   <span>English</span> |
