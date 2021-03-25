@@ -1,0 +1,35 @@
+{% extends "../../main.html" %}
+
+{% block title %}{{_("Create Flag")}}{% end %}
+
+{% block content %}
+{% set thebox = "?box=" + box.uuid if box else "" %}
+<div class="container">
+    <h1>
+        <i class="fa fa-flag"></i>
+        {{_("Create Flag")}}
+    </h1>
+    <br />
+    <a class="btn" data-toggle="modal" href="/admin/create/flag/static{{thebox}}">
+        <i class="fa fa-flag-o"></i>
+        {{_("Create Static Flag")}} &raquo;
+    </a>
+    <a class="btn" data-toggle="modal" href="/admin/create/flag/datetime{{thebox}}">
+        <i class="fa fa-flag-o"></i>
+        {{_("Create Datetime Flag")}} &raquo;
+    </a>
+    <a class="btn" data-toggle="modal" href="/admin/create/flag/regex{{thebox}}">
+        <i class="fa fa-flag-o"></i>
+        {{_("Create Regex Flag")}} &raquo;
+    </a>
+    <a class="btn" data-toggle="modal" href="/admin/create/flag/file{{thebox}}">
+        <i class="fa fa-flag-o"></i>
+        {{_("Create File Flag")}} &raquo;
+    </a>
+    <a class="btn" data-toggle="modal" href="/admin/create/flag/choice{{thebox}}">
+        <i class="fa fa-flag-o"></i>
+        {{_("Create Multiple Choice Flag")}} &raquo;
+    </a>
+    <br />
+</div>
+{% end %}

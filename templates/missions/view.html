@@ -1,0 +1,252 @@
+{% extends "../main.html" %}
+
+{% block title %}{{ _("Missions") }}{% end %}
+
+{% block header %}
+<script src="/static/js/pages/missions/view.js"></script>
+{% end %}
+
+{% block modals %}
+{% from tornado.options import options %}
+    <div id="unlock-game-level-modal" class="modal hide fade" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                <i class="fa fa-unlock"></i>
+                {{ _("Unlock Level") }}
+            </h3>
+        </div>
+        <div class="modal-body">
+            <form id="unlock-game-level-form" class="form-horizontal" method="post" action="/user/missions/buyout">
+                {% raw xsrf_form_html() %}
+                <input id="unlock-game-level-uuid" name="uuid" value="" type="hidden" />
+            </form>
+            <p id="description">
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">{{_("Close")}}</a>
+            <button id="unlock-game-level-submit" class="btn btn-primary" type="button">
+                {{ _("Unlock") }}
+            </button>
+        </div>
+    </div>
+{% end %}
+
+{% block content %}
+{% from models.GameLevel import GameLevel %}
+{% from models.Corporation import Corporation %}
+{% if options.group_by_corp %}
+    {% set corps = Corporation.all() %}
+{% else %}
+    {% set corps = [""] %}
+{% end %}
+    <!-- Visable -->
+    <div class="container">
+        <h1>{{ _("Missions") }}</h1>
+        <br />
+        {% if errors is not None and len(errors) != 0 %}
+            {% for error in errors %}
+            <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <h4 class="alert-heading">{{ _("ERROR") }}</h4>
+                    {{ error }}
+            </div>
+            {% end %}
+        {% end %}
+        {% for corp in corps %}
+            {% if options.group_by_corp and len(corp.boxes) == 0 %}
+                {% continue %}
+            {% end %}
+        {% for index, level in enumerate(GameLevel.all()) %}
+            {% if len(level.boxes) > 0 %}
+                {% if options.group_by_corp %}
+                    <h2>{{ corp.name }}&nbsp;</h2>
+                    {% if corp.description %}<h4 class="levelheader">{{ corp.description }}<h4>{% end %}
+                {% end %}
+            <div class="well">
+                {% if len(GameLevel.all()) > 1 %}
+                    <h3 class="levelheader">
+                        {% if not team or level.type == 'none' or level in team.game_levels %}
+                            <i class="fa fa-unlock-alt"></i>
+                        {% else %}
+                            <i class="fa fa-lock"></i>
+                        {% end %}
+                        {{ level.name }}&nbsp;
+                    </h3>
+                    {% if level.description %}<h4 class="levelheader">({{ level.description }})<h4>{% end %}
+                    {% if team and (level.type == 'none' or level in team.game_levels) %}
+                        <div class="progress" style="height: 10px; background-color: #424242;">
+                        {% if len(level.flags) == 0 %}
+                            <div class="bar minibar" style="width: {{0}}%;" title="{{ len(team.level_flags(level.number)) }} / {{ len(level.flags) }}"></div>
+                        {% end %}
+                        {% if len(level.flags) != 0 %}
+                            <div class="bar minibar" style="width: {{ ( len(team.level_flags(level.number)) /  float(len(level.flags)) ) * 100.0 }}%;" title="{{ len(team.level_flags(level.number)) }} / {{ len(level.flags) }}"></div>
+                        {% end %}
+                        </div>
+                    {% end %}
+                    <hr>
+                {% end %}
+                {% if not team or level.type == 'none' or level in team.game_levels %}
+                    <div class="container">
+                        {% set boxes = [] %}
+                        {% for box in level.boxes %}
+                            <!-- Only show boxes that have flags -->
+                            {% if len(box.flags) > 0 and not box.locked %}
+                                {% if options.group_by_corp %}
+                                    {% set boxcorp = Corporation.by_id(box.corporation_id) %}
+                                    {% if boxcorp == corp %}
+                                        {% set boxes.append(box) %}
+                                    {% end %}
+                                {% else %}
+                                    {% set boxes.append(box) %}
+                                {% end %}
+                            {% end %}
+                        {% end %}
+                        {% for box in boxes[::3] %}
+                            <div class="row">
+                                <div class="span3">
+                                    <center>
+                                        <a href="/user/missions/boxes?uuid={{ box.uuid }}">
+                                            <h5 style="margin-bottom: 6px;">
+                                                {% if box.operating_system.lower() == "windows" %}
+                                                    <i class="fa fa-windows"></i>
+                                                {% elif box.operating_system.lower() == "linux" %}
+                                                    <i class="fa fa-linux"></i>
+                                                {% elif box.operating_system.lower() == "apple" %}
+                                                    <i class="fa fa-apple"></i>
+                                                {% elif box.operating_system.lower() == "?" %}
+                                                    <i class="fa fa-desktop"></i>
+                                                {% else %}
+                                                    <i class="fa fa-th"></i>
+                                                {% end %}
+                                                {% if options.group_by_corp is False and box.corporation.name != "" %}{{ box.corporation.name }} - {% end %}{{ box.name }}
+                                            </h5>
+                                            {% if team %}
+                                                {% set flagcount=0 %}
+                                                {% for index, flag in enumerate(box.flags) %}
+                                                    {% if flag in team.flags %}
+                                                        {% set flagcount += 1 %}
+                                                    {% end %}
+                                                {% end %}
+                                                <div class="progress" style="height: 8px; margin-bottom: 8px; margin-right: -10px; background-color: #424242;">
+                                                    {% if flagcount != 0 and len(box.flags) != 0 %}
+                                                            <div class="bar minibar" style="width: {{ ( flagcount /  float(len(box.flags)) ) * 100.0 }}%;" title="{{ flagcount }} / {{ len(box.flags) }}"></div>
+                                                    {% else %}
+                                                            <div class="bar minibar" style="width: 0%;"></div>
+                                                    {% end %}
+                                                </div>
+                                            {% end %}
+                                            {% if box.avatar != "none" %}
+                                            <img src="/avatars/{{ box.avatar }}" class="img-polaroid" />
+                                            {% end %}
+                                        </a>
+                                    </center>
+                                </div>
+                                {% if boxes.index(box) + 1 < len(boxes) %}
+                                    {% set box1 = boxes[boxes.index(box) + 1] %}
+                                    <div class="span3 offset1">
+                                        <center>
+                                            <a href="/user/missions/boxes?uuid={{ box1.uuid }}">
+                                                <h5 style="margin-bottom: 6px;">
+                                                    {% if box1.operating_system.lower() == "windows" %}
+                                                        <i class="fa fa-windows"></i>
+                                                    {% elif box1.operating_system.lower() == "linux" %}
+                                                        <i class="fa fa-linux"></i>
+                                                    {% elif box1.operating_system.lower() == "apple" %}
+                                                        <i class="fa fa-apple"></i>
+                                                    {% elif box1.operating_system.lower() == "?" %}
+                                                        <i class="fa fa-desktop"></i>
+                                                    {% else %}
+                                                        <i class="fa fa-th"></i>
+                                                    {% end %}
+                                                    {% if options.group_by_corp is False and box.corporation.name != "" %}{{ box1.corporation.name }} - {% end %}{{ box1.name }}
+                                                </h5>
+                                                {% if team %}
+                                                    {% set flagcount=0 %}
+                                                    {% for index, flag in enumerate(box1.flags) %}
+                                                        {% if flag in team.flags %}
+                                                            {% set flagcount += 1 %}
+                                                        {% end %}
+                                                    {% end %}
+                                                    <div class="progress" style="height: 8px; margin-bottom: 8px; margin-right: -10px; background-color: #424242;" title="{% if len(box1.flags) != 0 %}{{ flagcount }} / {{ len(box1.flags) }}{% else %}0 / 0{% end %}">
+                                                        {% if flagcount != 0 and len(box1.flags) != 0 %}
+                                                                <div class="bar minibar" style="width: {{ ( flagcount /  float(len(box1.flags)) ) * 100.0 }}%;"></div>
+                                                        {% else %}
+                                                                <div class="bar minibar" style="width: 0%;"></div>
+                                                        {% end %}
+                                                    </div>
+                                                {% end %}
+                                                {% if box1.avatar != "none" %}
+                                                <img src="/avatars/{{ box1.avatar }}" class="img-polaroid" />
+                                                {% end %}
+                                            </a>
+                                        </center>
+                                    </div>
+                                {% end %}
+                                {% if boxes.index(box) + 2 < len(boxes) %}
+                                    {% set box2 = boxes[boxes.index(box) + 2] %}
+                                    <div class="span3 offset1">
+                                        <center>
+                                            <a href="/user/missions/boxes?uuid={{ box2.uuid }}">
+                                                <h5 style="margin-bottom: 6px;">
+                                                    {% if box2.operating_system.lower() == "windows" %}
+                                                        <i class="fa fa-windows"></i>
+                                                    {% elif box2.operating_system.lower() == "linux" %}
+                                                        <i class="fa fa-linux"></i>
+                                                    {% elif box2.operating_system.lower() == "apple" %}
+                                                        <i class="fa fa-apple"></i>
+                                                    {% elif box2.operating_system.lower() == "?" %}
+                                                        <i class="fa fa-desktop"></i>
+                                                    {% else %}
+                                                        <i class="fa fa-th"></i>
+                                                    {% end %}
+                                                    {% if options.group_by_corp is False and box.corporation.name != "" %}{{ box2.corporation.name }} - {% end %}{{ box2.name }}
+                                                </h5>
+                                                {% if team %}
+                                                    {% set flagcount=0 %}
+                                                    {% for index, flag in enumerate(box2.flags) %}
+                                                        {% if flag in team.flags %}
+                                                            {% set flagcount += 1 %}
+                                                        {% end %}
+                                                    {% end %}
+                                                    <div class="progress" style="height: 8px; margin-bottom: 8px; margin-right: -10px; background-color: #424242;">
+                                                        {% if flagcount != 0 and len(box2.flags) != 0 %}
+                                                                <div class="bar minibar" style="width: {{ ( flagcount /  float(len(box2.flags)) ) * 100.0 }}%;" title="{{ flagcount }} / {{ len(box2.flags) }}"></div>
+                                                        {% else %}
+                                                                <div class="bar minibar" style="width: 0%;"></div>
+                                                        {% end %}
+                                                    </div>
+                                                {% end %}
+                                                {% if box2.avatar != "none" %}
+                                                <img src="/avatars/{{ box2.avatar }}" class="img-polaroid" />
+                                                {% end %}
+                                            </a>
+                                        </center>
+                                    </div>
+                                {% end %}
+                            </div>
+                            <br />
+                        {% end %}
+                    </div>
+                {% else %}
+                    {% if level._type == "buyout" %}
+                    <a id="unlock-game-level-button{{ index }}" class="btn" data-toggle="modal" href="#unlock-game-level-modal" data-uuid="{{ level.uuid }}" data-banking="{{ str(options.banking).lower() }}" data-buyout="{{ level.buyout }}">
+                        <i class="fa fa-unlock"></i>
+                        {{ _("Unlock") }}
+                    </a>
+                    {% end %}
+                    <hr>
+
+                    <strong>
+                        {{ _("You do not have access to this level yet.") }}
+                    </strong>
+                    <br />
+                    <br />
+                {% end %}
+            </div>
+            {% end %}
+        {% end %}
+        {% end %}
+    </div>
+{% end %}

@@ -1,0 +1,245 @@
+{% block header %}
+<script src="/static/js/pages/menu/refresh.js" type="text/javascript"></script>
+<link href="/static/css/menu.css" rel="stylesheet" />
+{% end %}
+{% from tornado.options import options %}
+{% from handlers.MaterialsHandler import has_materials %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btncollapse" data-toggle="collapse" data-target=".nav-collapse">
+                    <i class="fa fa-bars"></i>
+            </a>
+            <a class="brand" href="/">
+                {% if options.debug %}
+                    <i class="fa fa-fw fa-bug"></i>
+                    {{ _("DEBUG") }}
+                {% else %}
+                    {{ options.game_name }}
+                {% end %}
+            </a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li>
+                        <a href="/user">
+                            <i class="fa fa-fw fa-home" title="{{ _('Home') }}"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-fw fa-gamepad"></i>
+                            {{ _("Game") }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/user/missions">
+                                    <i class="fa fa-fw fa-terminal"></i>
+                                    {{ _("Missions") }}
+                                </a>
+                            </li>
+                            {% if options.use_black_market %}
+                                <li>
+                                    <a href="/user/market">
+                                        <i class="fa fa-fw fa-shopping-cart"></i>
+                                        {{ _("Black Market") }}
+                                    </a>
+                                </li>
+                            {% end %}
+                            {% if options.use_bots %}
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="/user/bots/webmonitor">
+                                        <i class="fa fa-fw fa-android"></i>
+                                        {{ _("Botnet") }}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="/user/bots/webmonitor">{{ _("Command & Control") }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/bots/download/windows" target="_blank">{{ _("Download") }} Windows {{ _("Bot") }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/bots/download/linux" target="_blank">{{ _("Download") }} Linux / BSD {{ _("Bot") }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% end %}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-fw fa-wrench"></i>
+                            {{ _("Tools") }}
+                            <b class="caret"></b>
+                      </a>
+                        <ul class="dropdown-menu">
+                            {% for link in options.tool_links %}
+                                {% if link.get("name") and link.get("url") %}
+                                {% if not link.get("target") %}
+                                    {% set link["target"] = "_blank" %}
+                                {% end %}
+                                {% if link.get('name') == 'CyberChef' and (user.theme == 'Cyborg' or user.theme == 'Slate') %}
+                                    {% set theme="?theme=dark" %}
+                                {% else %}
+                                    {% set theme="" %}
+                                {% end %}
+                                <li>
+                                    <a href="{{ link.get('url') }}{{ theme }}" 
+                                        target="{{ link.get('target') }}">
+                                        <i class="fa fa-fw fa-link"></i>
+                                        {{ link.get('name') }}
+                                    </a>
+                                </li>
+                                {% end %}
+                            {% end %}
+                            {% if (handler.application.settings['game_started'] or options.game_materials_on_stop) and has_materials() %}
+                            <li>
+                                <a href="/materials">
+                                    <i class="fa fa-fw fa-folder-open-o"></i>
+                                    {{ _("Game Materials") }}
+                                </a>
+                            </li>
+                            {% end %}
+                            {% if options.teams and options.team_sharing %}
+                            <li>
+                                <a href="/user/share/files">
+                                    <i class="fa fa-fw fa-files-o"></i>
+                                    {{ _("Team File Share") }}
+                              </a>
+                            </li>
+                            <li>
+                                <a href="/user/share/pastebin">
+                                    <i class="fa fa-fw fa-clipboard"></i>
+                                    {{ _("Team PasteBin") }}
+                              </a>
+                            </li>
+                            {% end %}
+                        </ul>
+                    </li>
+                    {% if options.use_black_market %}
+                        {% if user.team and len(user.team.items) != 0 %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-fw fa-dashboard"></i>
+                                {{ _("Unlocks") }}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if user.has_item("Source Code Market") %}
+                                <li>
+                                    <a href="/source_code_market">
+                                        <i class="fa fa-fw fa-code"></i>
+                                        {{ _("Source Code Market") }}
+                                    </a>
+                                </li>
+                                {% end %}
+                                {% if user.has_item("Password Security") %}
+                                <li>
+                                    <a href="/password_security">
+                                        <i class="fa fa-fw fa-lock"></i>
+                                        {{ _("Password Security") }}
+                                    </a>
+                                </li>
+                                {% end %}
+                                {% if user.has_item("Federal Reserve") %}
+                                <li>
+                                    <a href="/federal_reserve">
+                                        <i class="fa fa-fw fa-dollar"></i>
+                                        {{ _("Federal Reserve") }}
+                                    </a>
+                                </li>
+                                {% end %}
+                                {% if user.has_item("SWAT") %}
+                                <li>
+                                    <a href="/swat">
+                                        <i class="fa fa-fw fa-crosshairs"></i>
+                                        {{ _("S.W.A.T.") }}
+                                    </a>
+                                </li>
+                                {% end %}
+                            </ul>
+                        </li>
+                        {% end %}
+                    {% end %}
+                    {% if scoreboard_visible %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-fw fa-bar-chart-o"></i>
+                            {{ _("Scoreboard") }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/scoreboard">
+                                    <i class="fa fa-fw fa-list"></i>
+                                    {{ _("Summary") }}
+                              </a>
+                            </li>
+                            <li>
+                                <a href="/scoreboard/history">
+                                    <i class="fa fa-fw fa-calendar"></i>
+                                    {{ _("Charts") }}
+                              </a>
+                            </li>
+                            {% if options.use_black_market %}
+                            <li>
+                                <a href="/scoreboard/wall_of_sheep">
+                                    <i class="fa fa-fw fa-key"></i>
+                                    {{ _("Wall of Sheep") }}
+                                </a>
+                            </li>
+                            {% end %}
+                            <li>
+                                <a href="/teams">
+                                    <i class="fa fa-fw fa-users"></i>
+                                    {% if options.teams %}{{ _("Teams") }}{% else %}{{ _("Players") }}{% end %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% end %}
+                    {% if len(options.chat_url) > 0 %}
+                    <li>
+                        <a href="{{options.chat_url}}" rel="noopener noreferrer" target="_blank">
+                            <i class="fa fa-fw fa-comment" title="{{ _('Chat') }}"></i>
+                        </a>
+                    </li>
+                    {% end %}
+                </ul>
+            </div><!--/.nav-collapse -->
+            <!-- Right Side -->
+            <div class="btn-group pull-right">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-fw fa-user"></i>
+                    {{ user.handle }}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/user/settings">
+                            <i class="fa fa-fw fa-gears"></i>
+                            {{ _("Settings") }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <i class="fa fa-fw fa-info-circle"></i>
+                            &nbsp;{{ _("About") }}
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <form id="logout-form" action="/logout" method="post">
+                            {% raw xsrf_form_html() %}
+                        </form>
+                        <a id="logout">
+                            <i class="fa fa-fw fa-sign-out"></i>
+                            {{ _("Logout") }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.game_button {
+    padding: 8px 12px;
+    margin-right: 12px;
+}
+.game_button_area {
+    margin: 18px 10px;
+}
+.game_button_text {
+    display: inline; 
+    vertical-align: middle;
+}
+.gitstatus {
+    padding-left: 15px; 
+    font-size: 150%; 
+}
+
+.gitstatus.info {
+    color: #4d9ecb;
+}
+
+.gitstatus.ok {
+    color: #adff2f;
+}
+
+.gitstatus.warn {
+    color: #eff834;
+}
+
+.gitform {
+    padding-top: 15px; 
+    padding-left: 15px;
+}

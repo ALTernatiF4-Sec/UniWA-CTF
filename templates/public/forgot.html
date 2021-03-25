@@ -1,0 +1,43 @@
+{% extends "../main.html" %}
+
+{% block title %}{{ _("Password Reset") }}{% end %}
+
+{% block header %}
+<link href="/static/css/pages/public/login.css" rel="stylesheet">
+{% end %}
+
+{% block content %}
+<div class="container">
+    <form class="form-signin" action="/reset" method="post">
+        <h3 class="form-signin-heading">
+            <i class="fa fa-lock"></i>
+            {{ _("Password Reset") }}
+        </h3>
+        {% if errors is not None and len(errors) != 0 %}
+            {% for error in errors %}
+                <div class="alert alert-error" >
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <h4 class="alert-heading">{{ _("Error") }}</h4>
+                    {{ error }}
+                </div>
+            {% end %}
+        {% end %}
+        {% if info is not None and len(info) != 0 %}
+            {% for item in info %}
+                <div class="alert alert-info" >
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <h4 class="alert-heading">{{ _("Information") }}</h4>
+                    {{ item }}
+                </div>
+            {% end %}
+        {% end %}
+        {% raw xsrf_form_html() %}
+        <input name="email" type="text" class="input-block-level" placeholder="{{ _('email') }}" autofocus>
+        <button class="btn btn-primary" type="submit">
+            <i class="fa fa-key"></i>
+            {{ _("Request Password Reset") }}
+        </button>
+    </form>
+</div> <!-- /container -->
+<br />
+{% end %}

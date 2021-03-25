@@ -1,0 +1,145 @@
+{% extends "../main.html" %}
+
+{% block title %}S.W.A.T.{% end %}
+
+{% block header %}
+<script src="/static/js/pages/upgrades/swat.js"></script>
+{% end %}
+
+{% block modals %}
+    <!-- Swat Player Modal -->
+    <div id="swat-player-modal" class="modal hide fade" style="display: none; ">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>S.W.A.T. {{ _("Bribe") }}</h3>
+        </div>
+        <div class="modal-body">
+            <form id="swat-player-form" class="form-horizontal" action="/swat" method="post">
+                {% raw xsrf_form_html() %}
+                <input id="swat-player-uuid" type="hidden" name="uuid" value="" />
+            </form>
+            <p id="swat-player-description">
+            </p>
+            <br />
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">{{ _("Close") }}</a>
+            <button id="swat-player-submit" class="btn btn-primary" type="button">
+                {{ _("Submit Bribe") }}
+            </button>
+        </div>
+    </div><!-- End Modal -->
+{% end %}
+
+{% block content %}
+{% from models.Swat import Swat %}
+    <div class="container">
+        <h1>
+            <i class="fa fa-crosshairs"></i>
+            S.W.A.T.
+        </h1>
+        <br />
+        {% if errors is not None and len(errors) != 0 %}
+            {% for error in errors %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <h4 class="alert-heading">{{ _("ERROR") }}</h4>
+                    {{ error }}
+                </div>
+            {% end %}
+        {% end %}
+        <div class="well">
+            <h3>{{ _("Submit Bribes") }}</h3>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{ _("Team") }}</th>
+                        <th>{{ _("Handle") }}</th>
+                        <th>{{ _("Bribe Amount") }}</th>
+                        <th><!-- Button --></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, target in enumerate(targets) %}
+                        {% if Swat.user_is_pending(target) %}
+                            <tr class="warning">
+                        {% elif Swat.user_is_in_progress(target) %}
+                            <tr class="error">
+                        {% else %}
+                            <tr>
+                        {% end %}
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ target.team.name }}</td>
+                            <td>{{ target.handle }}</td>
+                            <td>${{ Swat.get_price(target) }}</td>
+                            {% if Swat.user_is_pending(target) %}
+                                <td>{{ _("Bribe Pending") }}</td>
+                            {% elif Swat.user_is_in_progress(target) %}
+                                <td>{{ _("Accepted / In Jail") }}</td>
+                            {% else %}
+                                <td>
+                                    <a id="swat-player-button{{ index }}" class="btn btn-danger btn-mini" data-toggle="modal" href="#swat-player-modal" data-uuid="{{ target.uuid}}" data-price="{{ Swat.get_price(target) }}">
+                                        {{ _("Arrest Player") }}
+                                    </a>
+                                </td>
+                            {% end %}
+                        </tr>
+                    {% end %}
+                </tbody>
+            </table>
+        </div>
+        <br />
+        <div class="well">
+            <h3>{{ _("Bribe History") }}</h3>
+            <hr>
+            {% if len(user_bribes) != 0 %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{ _("Created") }}</th>
+                            <th>{{ _("Target") }}</th>
+                            <th>{{ _("Bribe Amount") }}</th>
+                            <th>{{ _("Outcome") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, swat in enumerate(user_bribes) %}
+                            {% if swat.is_pending() %}
+                                <tr class="warning">
+                            {% elif swat.is_in_progress() %}
+                                <tr class="info">
+                            {% elif swat.is_declined() %}
+                                <tr class="error">
+                            {% elif swat.is_successful() %}
+                                <tr class="success">
+                            {% end %}
+                                <td>{{ index + 1}}</td>
+                                <td>{{ swat.created }}</td>
+                                <td>{{ swat.target.handle }}</td>
+                                <td>${{ swat.paid }}</td>
+                                <td>
+                                    {% if swat.is_pending() %}
+                                        {{ _("Pending") }}
+                                    {% elif swat.is_in_progress() %}
+                                        {{ _("In Progress") }}
+                                    {% elif swat.is_declined() %}
+                                        {{ _("Declined") }}
+                                    {% elif swat.is_successful() %}
+                                        {{ _("Successful") }}
+                                    {% end %}
+                                </td>
+                            </tr>
+                        {% end %}
+                    </tbody>
+                </table>
+            {% else %}
+                <br />
+                {{ _("You have not submitted any bribes yet.") }}
+                <br />
+            {% end %}
+        </div>
+    </div>
+{% end %}

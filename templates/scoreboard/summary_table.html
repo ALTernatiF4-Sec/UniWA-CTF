@@ -1,0 +1,108 @@
+{% from tornado.options import options %}
+{% set hint_count_all = game_state.get("hint_count") %}
+{% set flag_count_all = game_state.get("flag_count") %}
+{% set box_count_all = game_state.get("box_count") %}
+{% set level_count_all = game_state.get("level_count") %}
+{% set teaminfo = game_state.get("teams") %}
+{% set levelinfo = game_state.get("levels") %}
+{% for index, team_name in enumerate(teaminfo) %}
+    {% set team = teaminfo.get(team_name) %}
+    {% if team.get('members_count') > 0 %}
+    <tr id="{{ team.get('uuid') }}" style="padding-top: 5px;">
+        <td class="summarycolumn shortcolumn centercolumn" style="font-size: x-large; padding: 0px 20px 0px 10px;">
+            {{ index + 1 }}
+        </td>
+        <td style="display:none;">{{ team.get('uuid') }}</td>
+        <td class="summarycolumn anim:hold">
+            <div style="width: 100%; display: table;">
+                <div style="display: table-row;">
+                    <div class="summarycolumn" style="display: table-cell; font-size: large;">{{ team_name }}</div>
+                    <div class="summarycolumn shortcolumn" style="display: table-cell; vertical-align: bottom; font-size: small;">
+                        {% if options.hints_taken and hint_count_all > 0 %}<span class="hintcol">{{ team.get('hints_count') }} {{ _("Hints Taken") }}</span>{% end %}<span id="last-{{team.get('uuid')}}" {% if options.hints_taken and hint_count_all > 0 %}class="lastflagcol" style="display: none;"{% end %}></span>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 8px; padding: 7px 0px;">
+                <div style="width: 100%; display: table;">
+                    <div style="display: table-row; ">
+                        {% for index, level_name in enumerate(levelinfo) %}
+                            {% set level = levelinfo.get(level_name) %}
+                            <!--  
+                                Display Level Progress. 
+                                If there is only one level with boxes, display boxes.  
+                                If there is only one box with flags, display flags. 
+                            -->
+                            {% set box_count_lvl = level.get("box_count") %}
+                            {% set team_level = level.get("teams").get(team_name) %}
+                            {% set team_count_lvl = team_level.get("lvl_count") %}
+                            {% if level_count_all > 1 and box_count_lvl > 0 and box_count_lvl < box_count_all %}
+                                {% if index > 0 %}
+                                    <div class="summarycolumn" style="display: table-cell; width: 10px;"></div>
+                                {% end %}
+                                <div class="summarycolumn" style="display: table-cell;">
+                                    {% if level.get("type") == 'none' or not team or team_level.get("lvl_unlock") %}
+                                        <i class="fa fa-unlock-alt" style="font-size: small; float:left; padding-right: 4px; margin-top: -3px;"></i>
+                                    {% else %}
+                                        <i class="fa fa-lock" style="color: #424242; font-size: small; float:left; padding-right: 4px; margin-top: -3px;"></i>
+                                    {% end %}
+                                    <div class="progress" style="height: 8px; margin-bottom: 8px; background-color: #424242;" title="{% if level_count_all > 1 %}{{ level_name }} &ndash; {% end %}{% if level.get('number') >= 0 and team_count_lvl != 0 %}{{ int(( team_count_lvl /  float(level.get('flag_count')) ) * 100) }}%{% else %}0%{% end %}">
+                                        {% if level.get("number") >= 0 and team_count_lvl != 0 %}
+                                            <div class="bar minibar" style="width: {{ ( team_count_lvl /  float(level.get('flag_count')) ) * 100.0 }}%;"></div>
+                                        {% else %}
+                                            <div class="bar minibar" style="width: 0%;"></div>
+                                        {% end %}
+                                    </div>
+                                </div>
+                            {% elif box_count_lvl > 0 %}
+                                {% set box_level = level.get("boxes") %}
+                                {% for index, box_uuid in enumerate(box_level) %}
+                                    {% set box = box_level.get(box_uuid) %}
+                                    {% set flag_count_box = box.get("flag_count") %}
+                                    {% set team_box = box.get("teams").get(team_name) %}
+                                    {% set team_count_box = team_box.get("box_count") %}
+                                    {% if box_count_lvl > 1 and flag_count_box > 0 and (flag_count_box < flag_count_all or flag_count_all > 35) %}
+                                        {% if index > 0 %}
+                                            <div class="summarycolumn" style="display: table-cell; width: 10px;"></div>
+                                        {% end %}
+                                        <div class="summarycolumn" style="display: table-cell;">
+                                            <div class="progress" style="height: 8px; margin-bottom: 8px; background-color: #424242;" title="{% if box_count_all > 1 %}{{ box.get('name') }} &ndash; {% end %}{% if team_count_box != 0 %}{{ int(( team_count_box /  float(flag_count_box) ) * 100) }}%{% else %}0%{% end %}">
+                                                {% if team_count_box != 0 %}
+                                                    <div class="bar minibar" style="width: {{ ( team_count_box /  float(flag_count_box) ) * 100.0 }}%;"></div>
+                                                {% else %}
+                                                    <div class="bar minibar" style="width: 0%;"></div>
+                                                {% end %}
+                                            </div>    
+                                        </div>
+                                    {% elif flag_count_box > 0 %}
+                                        {% set flags = box.get("flags") %}
+                                        {% for index, flaguuid in enumerate(flags) %}
+                                            {% set flag = flags[flaguuid] %}
+                                            {% if index > 0 %}
+                                                <div class="summarycolumn" style="display: table-cell; width: 10px;"></div>
+                                            {% end %}
+                                            <div class="summarycolumn" style="display: table-cell;">
+                                                <div class="progress" style="height: 8px; margin-bottom: 8px; background-color: #424242;" title="{{ flag.get('name') }}">
+                                                    {% if flaguuid in team.get("flags") %}
+                                                        <div class="bar minibar" style="width: 100%;"></div>
+                                                    {% else %}
+                                                        <div class="bar minibar" style="width: 0%;"></div>
+                                                    {% end %}
+                                                </div>
+                                            </div>
+                                        {% end %}
+                                    {% end %}
+                                {% end %}
+                            {% end %}
+                        {% end %}
+                    </div>
+                </div>
+            </div>    
+        </td>
+        <td class="summarycolumn botcol" style="font-size: large; white-space: nowrap; vertical-align: middle; width: 40px; text-align: center;{% if options.use_bots %} display: table-cell;{% else %} display: none;{% end %}">{{ team.get("bot_count") }}</td>
+        <td class="summarycolumn flagcol" style="{% if not options.rank_by == 'money' %}font-size: x-large; font-weight: bold;{% else %}font-size: large;{% end %} white-space: nowrap; vertical-align: middle; width: 50px; text-align: center;">{{ len(team.get("flags")) }}</div></td>
+        <td class="summarycolumn moneycol" style="{% if options.rank_by == 'money' %}font-size: x-large; font-weight: bold;{% else %}font-size: large;{% end %} white-space: nowrap; vertical-align: middle; width: 50px; text-align: center;">{% if options.banking %}{{ _("$") }}{% end %}{{ team.get("money") }}</td>
+        <td class="summarycolumn shortcolumn" style="vertical-align: middle; padding-left: 20px;"><a id="team-details-button{{ index }}" class="btn btn-mini" data-toggle="modal" data-uuid="{{ team.get('uuid') }}">{{ _("Details") }} &raquo;</a></td>
+    </tr>
+    {% end %}
+    
+{% end %}

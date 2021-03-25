@@ -1,0 +1,96 @@
+{% extends "../main.html" %}
+
+{% block header %}
+<script src="/static/js/libs/animator.min.js"></script>
+<script src="/static/js/pages/scoreboard/rankingTableUpdate.js"></script>
+<script src="/static/js/pages/scoreboard/summary.js"></script>
+<script src="/static/js/pages/missions/view.js"></script>
+<link href="/static/css/pages/public/summary.css" rel="stylesheet" />
+{% end %}
+
+{% block title %}{{ _("Scoreboard") }}{% end %}
+
+{% block content %}
+{% from tornado.options import options %}
+{% if not timer %}
+    <div class="row-fluid">
+        <h1 class="offset1">
+            <i class="fa fa-bar-chart-o"></i>
+            {{ _("Scoreboard") }}
+        </h1>
+        <br />
+    </div>
+   
+    <div class="row-fluid">
+        {% if len(options.scoreboard_right_image) > 0 %}
+            {% set wellspan="span7" %}
+        {% elif options.teams and options.show_mvp %}
+            {% set wellspan="span7" %}
+        {% else %}
+            {% set wellspan="span10" %}
+        {% end %}
+        <div class="well {{wellspan}} offset1" style="padding-left: 30px; padding-right: 30px;">
+            <table id="summary_table" class="table table-striped" data-since-score="{{ _('Since Score') }}">
+                <thead>
+                    <tr style="font-size: 120%;">
+                        <th class="anim:position anim:update" style="text-align: center;"><i class="fa fa-trophy" style="font-size: 120%; margin-left: -10px; margin-top: -10px;"></i></th>
+                        <th class="anim:id" style="display:none;"><!-- UUID --></th>
+                        <th class="anim:constant">
+                            {% if options.teams %}
+                                {{ _("Team") }}
+                            {% else %}
+                                {{ _("Player") }}
+                            {% end %}
+                        </th>
+                        <th class="anim:constant" style="text-align: center;{% if not options.use_bots %} display: none;{% end %}">{{ _("Bots") }}</th>
+                        <th class="anim:constant" style="text-align: center;">{{ _("Flags") }}</th>
+                        <th class="anim:constant" style="text-align: center;">
+                            {% if options.banking %}
+                                {{ _("Bank Account") }}
+                            {% else %}
+                                {{ _("Score") }}
+                            {% end %}
+                        </th>
+                        <th class="anim:update"><!-- Details --></th>
+                    </tr>
+                </thead>
+                <tbody id="summary_tbody" >
+                    <!-- AJAX -->
+                </tbody>
+            </table>
+        </div>
+        {% set showimage = len(options.scoreboard_right_image) > 0 %}
+        {% set showmvp = options.teams and options.show_mvp %}
+        {% if showimage or showmvp %}
+        <div class="well span3">
+            {% if showimage %}
+                <img id="scoreboard_right_image" src="{{options.scoreboard_right_image}}">
+            {% end %}
+            {% if showmvp %}
+                <table id="scoreboard_mvp" class="table table-striped"{% if showimage %} style="display: none;"{% end %}>
+                    <thead>
+                        <tr>
+                            <th>
+                                {{ _("MVP") }}
+                            </th>
+                            <th style="text-align: center;">
+                                {% if options.banking %}
+                                    {{ _("Money") }}
+                                {% else %}
+                                    {{ _("Points") }}
+                                {% end %}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="mvp_table">
+                        <!-- AJAX -->
+                    </tbody>
+                </table>
+            {% end %}
+        </div>
+        {% end %}
+    </div>
+    {% else %}
+    <h1 id="timercount" class="timercount"></h1>
+    {% end %}
+{% end %}

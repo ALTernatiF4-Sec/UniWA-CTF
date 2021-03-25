@@ -1,0 +1,350 @@
+{% extends "../main.html" %}
+
+{% block title %}{{ _("Settings") }}{% end %}
+
+{% block header %}
+<script src="/static/js/pages/user/settings.js"></script>
+{% end %}
+
+{% block modals %}
+{% from libs.XSSImageCheck import filter_avatars %}
+{% from libs.XSSImageCheck import existing_avatars %}
+{% from models.Theme import Theme %}
+{% from tornado.options import options %}
+    <!-- Change Avatar -->
+    {% if options.teams %}
+        {% set dir = "team" %}
+    {% else %}
+        {% set dir = "user" %}
+    {% end %}
+    {% set avatars = filter_avatars(dir) %}
+    {% set existing = existing_avatars("team") %}
+    <div id="change-team-avatar-modal" class="modal hide fade" style="display: none; {% if len(avatars) > 0 %}width: 750px; margin-left: -375px;{% end %}">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{{ _("Change") }} {% if options.teams %}{{ _("Team") }} {% end %}{{ _("Avatar") }}</h3>
+        </div>
+        <div class="modal-body">
+            <form action="/user/settings/team_avatar" method="post" enctype="multipart/form-data">
+                {% raw xsrf_form_html() %}
+                <div class="modal-footer" style="float: right;">
+                    <a href="#" class="btn" data-dismiss="modal">{{ _("Close") }}</a>
+                    <button id="team-avatar-form" class="btn btn-primary" type="submit">
+                        {{ _("Submit") }}
+                    </button>
+                </div>
+                <div class="control-group" style="vertical-align: middle;">
+                    <label class="control-label" for="team_avatar">{{ _("Upload Avatar File") }} - w500 x h250</label>
+                    <div class="controls" style="display: inline;">
+                        <input type="file" name="team_avatar" id="team_avatar" accept="image/bmp,image/jpeg,image/gif,image/png" style="color:white;" />
+                        <input type="hidden" name="team_avatar_select" id="team_avatar_select" />
+                    </div>
+
+                </div>
+                   
+                {% if len(avatars) > 0 %}
+                <div style="border-top: solid 1px rgb(92, 92, 92); margin-top: 20px; margin-bottom: 20px;"></div>
+                <span style="float: right; padding-right: 10px; margin-top: -15px; font-size: small;"><i class="fa fa-certificate"></i> {{ _("indicates use by another") }} {% if options.teams %}{{ _("team") }}{% else %}{{ _("player") }}{% end %}</span>
+                <label class="control-label" for="team_avatar">{{ _("Or Choose Existing") }}</label>
+                    {% for avatar in avatars[::3] %}
+                        <div class="row">
+                            <div class="span3" style="position: relative;">
+                                <center>
+                                    {% if avatar in existing %}<i class="fa fa-certificate avatarused"></i><i class="fa fa-certificate avatarused-top"></i>{% end %}
+                                    <a href="#" class="teamavatarimg" value="{{avatar}}"><img src="/avatars/{{avatar}}"  class="img-polaroid" style="width: 200px;"></a>
+                                </center>
+                            </div>
+                            {% if avatars.index(avatar) + 1 < len(avatars) %}
+                                {% set avatar1 = avatars[avatars.index(avatar) + 1] %}
+                                <div class="span3" style="position: relative;">
+                                    <center>
+                                        {% if avatar1 in existing %}<i class="fa fa-certificate avatarused"></i><i class="fa fa-certificate avatarused-top"></i>{% end %}
+                                        <a href="#" class="teamavatarimg" value="{{avatar1}}"><img src="/avatars/{{avatar1}}"  class="img-polaroid" style="width: 200px;"></a>
+                                    </center>
+                                </div>
+                            {% end %}
+                            {% if avatars.index(avatar) + 2 < len(avatars) %}
+                                {% set avatar2 = avatars[avatars.index(avatar) + 2] %}
+                                <div class="span3" style="position: relative;">
+                                    <center>
+                                        {% if avatar2 in existing %}<i class="fa fa-certificate avatarused"></i><i class="fa fa-certificate avatarused-top"></i>{% end %}
+                                        <a href="#" class="teamavatarimg" value="{{avatar2}}"><img src="/avatars/{{avatar2}}"  class="img-polaroid" style="width: 200px;"></a>
+                                    </center>
+                                </div>
+                            {% end %}
+                        </div>
+                        <br/>
+                    {% end %}
+                {% end %}
+            </form>
+        </div>
+    </div>
+    {% set avatars = filter_avatars("user") %}
+    {% set existing = existing_avatars("user") %}
+    <div id="change-user-avatar-modal" class="modal hide fade" style="display: none; {% if len(avatars) > 0 %}width: 750px; margin-left: -375px;{% end %}">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{{ _("Change") }} {% if options.teams %}{{ _("Player") }} {% end %}{{ _("Avatar") }}</h3>
+        </div>
+        <div class="modal-body">
+            <form action="/user/settings/user_avatar" method="post" enctype="multipart/form-data">
+                {% raw xsrf_form_html() %}
+                <div class="modal-footer" style="float: right;">
+                    <a href="#" class="btn" data-dismiss="modal">{{ _("Close") }}</a>
+                    <button id="user-avatar-form" class="btn btn-primary" type="submit">
+                        {{ _("Submit") }}
+                    </button>
+                </div>
+                <div class="control-group" style="vertical-align: middle;">
+                    <label class="control-label" for="user_avatar">{{ _("Upload Avatar File") }} - w500 x h250</label>
+                    <div class="controls" style="display: inline;">
+                        <input type="file" name="user_avatar" accept="image/bmp,image/jpeg,image/gif,image/png" id="user_avatar" style="color:white;" />
+                        <input type="hidden" name="user_avatar_select" id="user_avatar_select" />
+                    </div>
+
+                </div>
+                    
+                {% if len(avatars) > 0 %}
+                <div style="border-top: solid 1px rgb(92, 92, 92); margin-top: 20px; margin-bottom: 20px;"></div>
+                <span style="float: right; padding-right: 10px; margin-top: -15px; font-size: small;"><i class="fa fa-certificate"></i> {{ _("indicates use by another player") }}</span>
+                <label class="control-label" for="user_avatar">{{ _("Or Choose Existing") }}</label>
+                    {% for avatar in avatars[::3] %}
+                        <div class="row">
+                            <div class="span3" style="position: relative;">
+                                <center>
+                                    {% if avatar in existing %}<i class="fa fa-certificate avatarused"></i><i class="fa fa-certificate avatarused-top"></i>{% end %}
+                                    <a href="#" class="useravatarimg" value="{{avatar}}"><img src="/avatars/{{avatar}}"  class="img-polaroid" style="width: 200px;"></a>
+                                </center>
+                            </div>
+                            {% if avatars.index(avatar) + 1 < len(avatars) %}
+                                {% set avatar1 = avatars[avatars.index(avatar) + 1] %}
+                                <div class="span3" style="position: relative;">
+                                    <center>
+                                        {% if avatar1 in existing %}<i class="fa fa-certificate avatarused"></i><i class="fa fa-certificate avatarused-top"></i>{% end %}
+                                        <a href="#" class="useravatarimg" value="{{avatar1}}"><img src="/avatars/{{avatar1}}"  class="img-polaroid" style="width: 200px;"></a>
+                                    </center>
+                                </div>
+                            {% end %}
+                            {% if avatars.index(avatar) + 2 < len(avatars) %}
+                                {% set avatar2 = avatars[avatars.index(avatar) + 2] %}
+                                <div class="span3" style="position: relative;">
+                                    <center>
+                                        {% if avatar2 in existing %}<i class="fa fa-certificate avatarused"></i><i class="fa fa-certificate avatarused-top"></i>{% end %}
+                                        <a href="#" class="useravatarimg" value="{{avatar2}}"><img src="/avatars/{{avatar2}}"  class="img-polaroid" style="width: 200px;"></a>
+                                    </center>
+                                </div>
+                            {% end %}
+                        </div>
+                        <br/>
+                    {% end %}
+                {% end %}
+            </form>
+        </div>
+    </div>
+{% end %}
+{% block content %}
+    <div class="container">
+        <h1>
+            <i class="fa fa-gears"></i>
+            {{ _("Settings") }}
+        </h1>
+        <br />
+        {% if errors is not None and len(errors) != 0 %}
+            {% for error in errors %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <h4 class="alert-heading">{{ _("ERROR") }}</h4>
+                    {{ error }}
+                </div>
+            {% end %}
+        {% end %}
+        {% if success is not None and len(success) != 0 %}
+            {% for message in success %}
+                <div class="alert alert-success">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <h4 class="alert-heading">{{ _("SUCCESS") }}</h4>
+                    {{ message }}
+                </div>
+            {% end %}
+        {% end %}
+       
+        <div class="row">
+            {% if user.team is not None %}
+            <div class="span3 well" style="width: 260px; padding-bottom: 23px; padding-right: 28px; ">
+                <div class="control-group" style="float:right; margin-right: -8px;">
+                    <div class="controls">
+                        <a data-toggle="modal" class="btn btn-primary" href="#change-team-avatar-modal"> {{ _("Change") }} </a>
+                    </div>
+                </div>
+                <legend>{% if options.teams %}{{ _("Team") }} {% end %}{{ _("Avatar") }}</legend>
+                {% if user.team %}
+                    <img src="/avatars/{{ user.team.avatar }}" class="img-polaroid" />
+                {% else %}
+                    <img src="/avatars/default_team.jpg" class="img-polaroid" /> 
+                {% end %}
+            </div>
+            {% end %}
+            
+            {% if options.teams or user.team is None %}
+            <div class="span3 well" style="width: 260px; padding-bottom: 23px; padding-right: 28px; ">
+
+                <div class="control-group" style="float:right; margin-right: -8px;">
+                    <div class="controls">
+                        <a data-toggle="modal" class="btn btn-primary" href="#change-user-avatar-modal"> {{ _("Change") }} </a>
+                    </div>
+                </div>
+                <legend>{{ _("Avatar") }}</legend>
+                {% if user.avatar %}
+                    <img src="/avatars/{{ user.avatar }}" class="img-polaroid" />
+                {% else %}
+                    <img src="/avatars/default_user.jpg" class="img-polaroid" />
+                {% end %}
+            </div>
+            {% elif user.team is not None %}
+                <div class="span3 well">
+                    <form action="/user/settings/motto" method="post">
+                        {% raw xsrf_form_html() %}
+                        <legend>{{ _("Change") }} {{ _("Motto") }}</legend>
+                        <div class="control-group" style="margin-top: 0px; margin-bottom: 40px;">
+                            <label class="control-label" for="motto">{{ _("Motto") }}</label>
+                            <div class="controls">
+                                <input id="motto" name="motto" maxlength="32" type="text" placeholder="{{ _('Motto') }}" value="{{ user.team.motto }}" />
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: right;">
+                            <div class="controls">
+                                <button class="btn btn-primary" type="submit"> {{ _("Change") }} {{ _("Motto") }} </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            {% end %}
+            {% if options.allow_user_to_change_theme %}
+            <div class="span3 well">
+                <form action="/user/settings/theme" method="post">
+                    {% raw xsrf_form_html() %}
+                    <legend>{{ _("Change") }} {{ _("Theme") }}</legend>
+                    <div class="control-group" style="margin-top: 0px; margin-bottom: 40px;">
+                        <label class="control-label" for="theme_uuid">{{ _("Select a Theme") }}</label>
+                        <div class="controls">
+                            <select name="theme_uuid">
+                                <option value="{{ current_theme.uuid }}">{{ current_theme.name }}</option>
+                                {% for theme in Theme.all() %}
+                                    {% if current_theme != theme %}
+                                        <option value="{{ theme.uuid }}">{{ theme.name }}</option>
+                                    {% end %}
+                                {% end %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" style="float: right;">
+                        <div class="controls">
+                            <button class="btn btn-primary" type="submit"> {{ _("Change") }} {{ _("Theme") }} </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% end %}
+        </div>
+        <div class="row" style="margin-left: 0px; margin-right: 20px;">
+            <div class="well">
+                <form class="form-horizontal" action="/user/settings/email" method="post" autocomplete="off">
+                    {% raw xsrf_form_html() %}
+                    <legend>
+                        <i class="fa fa-mail"></i>
+                        {{ _("Email") }}
+                    </legend>
+                    <label class="control-label" for="email">{{ _("Email") }}</label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input required type="text" name="email" id="email" placeholder="{{ _('Email') }}" value="{{ user.email }}" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button class="btn btn-primary" type="submit"> {{ _("Update Email") }} </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row" style="margin-left: 0px; margin-right: 20px;">
+            <div class="well">
+                <form class="form-horizontal" action="/user/settings/password" method="post" autocomplete="off">
+                    {% raw xsrf_form_html() %}
+                    <legend>
+                        <i class="fa fa-lock"></i>
+                        {{ _("Login Password") }}
+                    </legend>
+                    <div class="control-group">
+                        <label class="control-label" for="old_password">{{ _("Old Password") }}</label>
+                        <div class="controls">
+                            <input required type="password" name="old_password" id="old_password" placeholder="{{ _('Old Password') }}" />
+                        </div>
+                    </div>
+                    <label class="control-label" for="new_password">{{ _("New Password") }}</label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input required type="password" name="new_password" id="new_password" placeholder="{{ _('New Password') }}" minlength="{{ options.min_user_password_length }}" />
+                        </div>
+                    </div>
+                    <label class="control-label" for="new_password2">{{ _("Confirm New Password") }}</label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input required type="password" name="new_password2" id="new_password2" placeholder="{{ _('Confirm Password') }}" minlength="{{ options.min_user_password_length }}" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button class="btn btn-primary" type="submit"> {{ _("Update Password") }} </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% if options.banking %}
+        <div class="row-fluid" style="margin-left: 0px;">
+            <div class="well" style="margin-right: 20px;">
+                <form class="form-horizontal" action="/user/settings/bank_password" method="post" autocomplete="off">
+                    {% raw xsrf_form_html() %}
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <legend>
+                                <i class="fa fa-lock"></i>
+                                {{ _("Bank Password") }}
+                            </legend>
+                            <div class="control-group">
+                                <label class="control-label" for="old-password">
+                                    {{ _("Current Bank Password") }}
+                                </label>
+                                <div class="controls">
+                                    <input required id="old-password" type="password" name="old_bpassword" placeholder="{{ _('Old Password') }}" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="new_bpassword">
+                                    {{ _("New Bank Password") }}
+                                </label>
+                                <div class="controls">
+                                    <input required type="password" name="new_bpassword" id="new_bpassword" placeholder="{{ _('New Password') }}" />
+                                </div>
+                            </div>
+                        </div>
+                        {% module Recaptcha() %}
+                    </div>
+                    <div class="row" style="margin-left: 0px;">
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class="btn btn-primary" type="submit">
+                                    {{ _("Update Bank Password") }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% end %}
+    </div>
+</div>
+{% end %}

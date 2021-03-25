@@ -1,0 +1,16 @@
+{% extends "../main.html" %}
+
+{% block title%}404{% end %}
+
+{% block content %}
+    <div class="container">
+        <h1>404 - {{ _("Glitch in the Matrix") }}</h1>
+        <!-- Okay yes I know, it really returns a 200 -->
+        <br />
+        <p>
+            {{ _("It looks like you typed a URL incorrectly, or were attempting to find something you ought not have access to.") }}
+            <br />
+            {{ _("The only other possibility is that I messed up some of the code, and that doesn't seem very likely.") }}
+        </p>
+    </div>
+{% end %}

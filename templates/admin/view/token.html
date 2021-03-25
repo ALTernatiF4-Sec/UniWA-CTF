@@ -1,0 +1,59 @@
+{% extends "../../main.html" %}
+
+{% block title %}{{ _("Create")}} {{_("Registration Tokens") }}{% end %}
+
+{% block header %}
+<script src="/static/js/pages/admin/view/token.js"></script>
+{% end %}
+
+{% block content %}
+{% from models.RegistrationToken import RegistrationToken %}
+    <div class="container">
+        <h1>{{ _("Registration Tokens") }}</h1>
+        <br />
+        <form id="token-form" action="/admin/regtoken/view" method="post">
+            {% raw xsrf_form_html() %}
+            <input id="token-value" name="token_value" type="hidden" value="blank" />
+        </form>
+        {% if errors != None and len(errors) != 0 %}
+            {% for error in errors %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                        <h4 class="alert-heading">{{ _("ERROR") }}</h4>
+                        {{ error }}
+                </div>
+            {% end %}
+        {% end %}
+        <div class="well">
+            {% if RegistrationToken.count() %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{ _("Token") }}</th>
+                        <th>{{ _("Used") }}</th>
+                        <th><!-- Delete --></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, token in enumerate(RegistrationToken.all()) %}
+                        <tr>
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ token.value }}</td>
+                            <td>{{ token.used }}</td>
+                            <td>
+                                <a id="delete-token-button{{ index }}" class="btn btn-danger btn-mini" type="button" data-value="{{ token.value }}">
+                                    <i class="fa fa-fw fa-times-circle-o"></i>
+                                    {{ _("Delete") }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% end %}
+                </tbody>
+            </table>
+            {% else %}
+                <h4>{{ _("No Tokens in Database") }}</h4>
+            {% end %}
+        </div>
+    </div>
+{% end %}

@@ -1,0 +1,22 @@
+{% extends "../main.html" %}
+
+{% block title %}403{% end %}
+
+{% block content %}
+      <div class="container">
+          {% if locked %}
+              <h1>403 - {{ _("Account Locked!") }}</h1>
+          {% elif xsrf %}
+              <h1>403 - {{ _("Invalid CSRF Token") }}</h1>
+          {% else %}
+            <h1>403 - {{ _("Forbidden") }}</h1>
+        {% end %}
+        <br />
+        <p>
+            <img src="/static/images/epicsaxguy.gif" width="480px;" >
+            <audio autoplay loop>
+                <source src="/static/epicsaxguy.mp3" type="audio/mpeg">
+            </audio>
+        </p>
+    </div>
+{% end %}

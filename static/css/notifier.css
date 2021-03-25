@@ -1,0 +1,11 @@
+.box {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 30px;
+}
+.box .title {
+      font: 24px "Droid Serif", serif;
+}
+.box .list {
+      list-style: square;
+}

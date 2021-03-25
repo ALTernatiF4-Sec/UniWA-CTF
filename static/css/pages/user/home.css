@@ -1,0 +1,12 @@
+.notifications-title {
+    display: inline;
+}
+
+.notifications {
+    display: inline;
+    float: right;
+}
+
+.msgdescription {
+    width: 82% !important;
+}
