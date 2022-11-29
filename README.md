@@ -26,10 +26,9 @@ ALTernatiF4 is a team created by [MichaelKokkos](https://github.com/MichaelKokko
 ```console
 root@UniWA-CTF:~# whoami
 MichaelKokkos
-- CCNA
-- Cybersecurity Enthusiast
-- GNU/Linux Power User
-- FOSS Advocate
+- IT Specialist
+- CTF Player 
+- Security Enthusiast
 ```
 
 ```console
