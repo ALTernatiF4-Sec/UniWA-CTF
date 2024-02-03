@@ -21,7 +21,7 @@ For any question that you might have about the installation, the tools required 
 
 ## Who we are
 
-ALTernatiF4 is a team created by [MichaelKokkos](https://github.com/MichaelKokkos) and [AlexS]. We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. Special thanks to [Ejento](https://github.com/Ejento) for helping us with his experience.
+ALTernatiF4 is a team created by [MichaelKokkos](https://github.com/MichaelKokkos) and AlexS. We are two senior students in the Electrical and Electronics Engineering Department at the University Of West Attica. We formed the team to cooperate and release our final year's thesis project under that label. Special thanks to [Ejento](https://github.com/Ejento) for helping us with his experience.
 
 ```console
 root@UniWA-CTF:~# whoami
